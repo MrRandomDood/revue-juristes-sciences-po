@@ -44,23 +44,23 @@ content:
         options:
           multiple: true
           values:
-            - { value: antitrust-and-competition, label: Antitrust and Competition }
-            - { value: asylum-and-refugee-law, label: Asylum and Refugee Law }
-            - { value: bioethics-and-medical-law-1, label: Bioethics and medical law }
-            - { value: comparative-law, label: Comparative Law }
-            - { value: constitutional-law, label: Constitutional Law }
-            - { value: criminal-law, label: Criminal Law }
-            - { value: digital-law-and-technology, label: Digital Law/Technology }
-            - { value: international-arbitration, label: Dispute Resolution/Arbitration }
-            - { value: environment-and-climate-change-1-1, label: Environment/Climate Change }
-            - { value: eu-law, label: EU Law }
-            - { value: financial-crimes-and-corruption, label: Financial Crimes/Corruption }
-            - { value: human-rights, label: Human Rights }
-            - { value: humanitarian-law, label: Humanitarian Law }
-            - { value: parliamentary-debates-1, label: Parliamentary debates }
-            - { value: prix-rjsp-2026, label: PRIX RJSP 2026 }
-            - { value: private-law, label: Private Law }
-            - { value: public-international-law, label: Public International Law }
+            - { value: bioethics-and-medical-law-1, label: Bioéthique et droit médical }
+            - { value: financial-crimes-and-corruption, label: Criminalité financière / Corruption }
+            - { value: parliamentary-debates-1, label: Débats parlementaires }
+            - { value: comparative-law, label: Droit comparé }
+            - { value: constitutional-law, label: Droit constitutionnel }
+            - { value: asylum-and-refugee-law, label: Droit d'asile et des réfugiés }
+            - { value: antitrust-and-competition, label: Droit de la concurrence }
+            - { value: eu-law, label: Droit de l'Union européenne }
+            - { value: digital-law-and-technology, label: Droit du numérique / Technologies }
+            - { value: humanitarian-law, label: Droit humanitaire }
+            - { value: public-international-law, label: Droit international public }
+            - { value: criminal-law, label: Droit pénal }
+            - { value: private-law, label: Droit privé }
+            - { value: human-rights, label: Droits de l'homme }
+            - { value: environment-and-climate-change-1-1, label: Environnement / Changement climatique }
+            - { value: prix-rjsp-2026, label: Prix RJSP 2026 }
+            - { value: international-arbitration, label: Règlement des différends / Arbitrage }
       - name: cover
         label: Image de couverture
         type: image
@@ -148,7 +148,8 @@ content:
         list: true
         fields:
           - { name: slug, label: Identifiant (dans l'adresse), type: string, required: true }
-          - { name: name, label: Nom affiché, type: string, required: true }
+          - { name: fr, label: Nom en français, type: string, required: true }
+          - { name: en, label: Nom en anglais, type: string, required: true }
 
   - name: site
     label: Coordonnées et partenaires

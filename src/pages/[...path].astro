@@ -46,7 +46,7 @@ const allPosts = (await getCollection('posts'))
   .filter((p) => !p.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const categories = await getCollection('categories');
-const catName = (id: string) => categories.find((c) => c.id === id)?.data.name ?? id;
+const catName = (id: string) => categories.find((c) => c.id === id)?.data[lang] ?? id;
 // English pages fall back to the French text until a translation exists.
 const pageEntry = async (name: string) =>
   (await getEntry('pages', `${lang}/${name}`)) ?? (await getEntry('pages', `fr/${name}`));
@@ -100,7 +100,9 @@ const team = props.view === 'team' ? parse(teamYml) : null;
 const latestIssue = issues[0];
 // Blog pages get their own header style so they read as separate from the review.
 const isBlog = props.view === 'blog' || props.view === 'category' || props.view === 'post' || path === PATHS.submit;
-const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
+const usedCategories = categories
+  .filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)))
+  .sort((a, b) => a.data[lang].localeCompare(b.data[lang], lang));
 ---
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
   {props.view === 'home' && (
@@ -238,7 +240,7 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
         <ul class="cat-filter">
           <li><a href={url(lang, PATHS.blog)} aria-current={props.view === 'blog' ? 'page' : undefined}>{s.allPosts}</a></li>
           {usedCategories.map((c) => (
-            <li><a href={url(lang, `blog/categories/${c.id}`)} aria-current={props.view === 'category' && props.category === c.id ? 'page' : undefined}>{c.data.name}</a></li>
+            <li><a href={url(lang, `blog/categories/${c.id}`)} aria-current={props.view === 'category' && props.category === c.id ? 'page' : undefined}>{c.data[lang]}</a></li>
           ))}
         </ul>
         <div class="cards" id="post-list">{listed.map((p) => <PostCard post={p} lang={lang} />)}</div>

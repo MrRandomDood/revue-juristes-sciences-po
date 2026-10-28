@@ -1,36 +1,54 @@
 # Catégories du blog. Le "slug" apparaît dans l'adresse : /blog/categories/<slug>
+# "fr" s'affiche sur le site en français, "en" sur le site en anglais.
 categories:
   - slug: financial-crimes-and-corruption
-    name: "Financial Crimes/Corruption"
+    fr: "Criminalité financière / Corruption"
+    en: "Financial Crimes/Corruption"
   - slug: bioethics-and-medical-law-1
-    name: "Bioethics and medical law"
+    fr: "Bioéthique et droit médical"
+    en: "Bioethics and Medical Law"
   - slug: human-rights
-    name: "Human Rights"
+    fr: "Droits de l'homme"
+    en: "Human Rights"
   - slug: comparative-law
-    name: "Comparative Law"
+    fr: "Droit comparé"
+    en: "Comparative Law"
   - slug: criminal-law
-    name: "Criminal Law"
+    fr: "Droit pénal"
+    en: "Criminal Law"
   - slug: parliamentary-debates-1
-    name: "Parliamentary debates"
+    fr: "Débats parlementaires"
+    en: "Parliamentary Debates"
   - slug: public-international-law
-    name: "Public International Law"
+    fr: "Droit international public"
+    en: "Public International Law"
   - slug: humanitarian-law
-    name: "Humanitarian Law"
+    fr: "Droit humanitaire"
+    en: "Humanitarian Law"
   - slug: constitutional-law
-    name: "Constitutional Law"
+    fr: "Droit constitutionnel"
+    en: "Constitutional Law"
   - slug: asylum-and-refugee-law
-    name: "Asylum and Refugee Law"
+    fr: "Droit d'asile et des réfugiés"
+    en: "Asylum and Refugee Law"
   - slug: private-law
-    name: "Private Law"
+    fr: "Droit privé"
+    en: "Private Law"
   - slug: antitrust-and-competition
-    name: "Antitrust and Competition"
+    fr: "Droit de la concurrence"
+    en: "Antitrust and Competition"
   - slug: environment-and-climate-change-1-1
-    name: "Environment/Climate Change"
+    fr: "Environnement / Changement climatique"
+    en: "Environment/Climate Change"
   - slug: prix-rjsp-2026
-    name: "PRIX RJSP 2026"
+    fr: "Prix RJSP 2026"
+    en: "RJSP Award 2026"
   - slug: digital-law-and-technology
-    name: "Digital Law/Technology"
+    fr: "Droit du numérique / Technologies"
+    en: "Digital Law/Technology"
   - slug: international-arbitration
-    name: "Dispute Resolution/Arbitration"
+    fr: "Règlement des différends / Arbitrage"
+    en: "Dispute Resolution/Arbitration"
   - slug: eu-law
-    name: "EU Law"
+    fr: "Droit de l'Union européenne"
+    en: "EU Law"

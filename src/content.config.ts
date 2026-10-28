@@ -38,7 +38,7 @@ const issues = defineCollection({
 
 const categories = defineCollection({
   loader: file('./src/content/categories.yml', { parser: (text) => yamlList(text, 'categories', 'slug') }),
-  schema: z.object({ slug: z.string(), name: z.string() }),
+  schema: z.object({ slug: z.string(), fr: z.string(), en: z.string() }),
 });
 
 // The data files hold a top-level list (`issues:`, `categories:`) so the CMS can edit them as one form.
