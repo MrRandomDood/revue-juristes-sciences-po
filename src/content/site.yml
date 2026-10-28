@@ -4,10 +4,11 @@ linkedin: https://www.linkedin.com/company/la-revue-des-juristes-de-sciences-po/
 address:
   - 27 Rue Saint Guillaume
   - 75007 Paris, France
+# Logos des partenaires : PNG blanc sur fond transparent (ils s'affichent sur le pied de page bordeaux).
 partners:
   - name: LexisNexis
-    logo: /media/site/lexisnexis.webp
+    logo: /media/site/lexisnexis-white.png
   - name: Association des Juristes de Sciences Po
-    logo: /media/site/ajsp.webp
+    logo: /media/site/ajsp-white.png
   - name: Fondation Simone et Cino Del Duca
-    logo: /media/site/fondation-del-duca.jpg
+    logo: /media/site/fondation-del-duca-white.png

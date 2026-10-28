@@ -322,16 +322,19 @@ a.prize-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift)
 .site-footer { background: var(--burgundy-deep); color: rgba(255, 255, 255, 0.78); font-size: 1.05rem; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { color: var(--stone); }
-.footer-inner { max-width: var(--wide); margin: 0 auto; padding: 72px 24px 40px; display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 48px; }
+.footer-inner { max-width: var(--wide); margin: 0 auto; padding: 72px 24px 40px; display: grid; grid-template-columns: 0.9fr 0.9fr 1.7fr; gap: 48px; }
 .footer-inner p { margin: 0 0 8px; }
 .footer-brand { display: flex; flex-direction: column; gap: 16px; }
 .footer-brand img { width: 56px; height: 56px; background: #fff; border-radius: 50%; padding: 4px; }
 .footer-name { font-size: 1.35rem; line-height: 1.15; color: #fff; text-transform: uppercase; font-weight: 600; }
 .footer-title { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--stone); margin-bottom: 18px !important; }
 .footer-address { font-size: 0.98rem; margin-top: 12px !important; }
-.partners { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.partners li { background: #fff; padding: 10px 14px; height: 68px; display: flex; align-items: center; border-radius: 10px; }
-.partners img { max-height: 48px; width: auto; }
+.partners { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 24px 32px; align-items: center; }
+.partners li { display: flex; align-items: center; }
+/* Any transparent logo is shown as a white silhouette, so a new partner's logo matches without editing.
+   Tall logos get the full height; wide ones are capped by max-width so they carry similar visual weight. */
+.partners img { height: 52px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.72; transition: opacity 0.25s; }
+.partners li:hover img { opacity: 1; }
 .copyright { max-width: var(--wide); margin: 0 auto; font-family: var(--sans); font-size: 0.75rem; opacity: 0.6; padding: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 @media (max-width: 860px) { .footer-inner { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .footer-inner { grid-template-columns: 1fr; } }

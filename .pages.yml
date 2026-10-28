@@ -164,4 +164,4 @@ content:
         list: true
         fields:
           - { name: name, label: Nom, type: string }
-          - { name: logo, label: Logo, type: image }
+          - { name: logo, label: Logo (PNG à fond transparent, il s'affiche en blanc), type: image }

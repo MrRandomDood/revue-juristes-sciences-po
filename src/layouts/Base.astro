@@ -112,7 +112,7 @@ const canonical = new URL(url(lang, path), Astro.site);
           <p class="footer-title">{s.footer.partners}</p>
           <ul class="partners">
             {site.partners.map((p: { name: string; logo: string }) => (
-              <li><img src={p.logo} alt={p.name} loading="lazy" /></li>
+              <li><img src={p.logo} alt={p.name} title={p.name} loading="lazy" /></li>
             ))}
           </ul>
         </div>
