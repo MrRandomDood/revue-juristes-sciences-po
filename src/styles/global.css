@@ -1,0 +1,163 @@
+:root {
+  --burgundy: #531f2c;
+  --mauve: #7e5761;
+  --stone: #d1ccc5;
+  --paper: #ffffff;
+  --ink: #1c1a1a;
+  --muted: #6b6264;
+  --line: #e4dfd8;
+  --serif: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --wide: 1100px;
+  --narrow: 760px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--burgundy); text-underline-offset: 2px; }
+a:hover { color: var(--mauve); }
+
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; margin: 1.6em 0 0.6em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin-top: 0; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.45rem; }
+
+/* Header */
+.site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
+.masthead {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 28px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.brand { display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--ink); text-decoration: none; text-align: center; }
+.brand-title { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; line-height: 1.05; font-weight: 500; letter-spacing: 0.01em; }
+.brand img { width: 96px; height: 96px; }
+.lang-switch {
+  position: absolute; top: 28px; right: 16px;
+  background: var(--burgundy); color: #fff; text-decoration: none;
+  font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.08em;
+  padding: 6px 12px; border-radius: 2px;
+}
+.lang-switch:hover { background: var(--mauve); color: #fff; }
+
+.main-nav ul {
+  list-style: none; margin: 0 auto; padding: 8px 16px 16px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 6px;
+  max-width: var(--wide);
+}
+.main-nav a {
+  display: block; padding: 7px 12px;
+  font-family: var(--sans); font-size: 0.85rem; color: var(--ink); text-decoration: none;
+  border-radius: 2px;
+}
+.main-nav a:hover { background: var(--stone); color: var(--ink); }
+.main-nav a[aria-current='page'] { background: var(--stone); }
+
+/* Layout */
+main { min-height: 60vh; }
+.section { padding: 56px 16px; }
+.section--stone { background: var(--stone); }
+.section--burgundy { background: var(--burgundy); color: #fff; }
+.section--burgundy a { color: #fff; }
+.container { max-width: var(--wide); margin: 0 auto; }
+.narrow { max-width: var(--narrow); margin: 0 auto; }
+.panel { background: var(--paper); padding: clamp(24px, 5vw, 56px); }
+.page-title { text-align: center; margin-bottom: 1.2em; }
+.lead { font-size: 1.35rem; }
+
+.button {
+  display: inline-block; padding: 10px 26px;
+  font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--burgundy); color: #fff; text-decoration: none; border: 1px solid var(--burgundy);
+}
+.button:hover { background: var(--mauve); border-color: var(--mauve); color: #fff; }
+.section--burgundy .button { background: transparent; border-color: #fff; }
+.section--burgundy .button:hover { background: #fff; color: var(--burgundy); }
+
+/* Prose from Markdown */
+.prose > :first-child { margin-top: 0; }
+.prose p, .prose li { text-align: justify; hyphens: auto; }
+.prose img { display: block; margin: 1.5em auto; }
+.prose blockquote { margin: 1.5em 0; padding-left: 1em; border-left: 3px solid var(--stone); color: var(--muted); }
+.prose table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+.prose td, .prose th { border: 1px solid var(--line); padding: 6px 10px; }
+.prose a { word-break: break-word; }
+
+/* Latest issue */
+.latest { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: center; }
+.latest img { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+.latest h2 { margin-top: 0; }
+@media (max-width: 760px) { .latest { grid-template-columns: 1fr; } .latest img { max-width: 260px; margin: 0 auto; display: block; } }
+
+/* Post cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.card { background: var(--paper); border: 1px solid var(--line); display: flex; flex-direction: column; color: var(--ink); text-decoration: none; transition: box-shadow 0.15s; }
+.card:hover { box-shadow: 0 6px 20px rgba(83, 31, 44, 0.15); color: var(--ink); }
+.card img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+.card-body { padding: 18px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card h3 { margin: 0; font-size: 1.35rem; }
+.card p { margin: 0; color: var(--muted); font-size: 1.05rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.meta { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: auto; }
+.badge { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid currentColor; padding: 1px 6px; border-radius: 2px; }
+
+.cat-filter { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 40px; padding: 0; list-style: none; }
+.cat-filter a { font-family: var(--sans); font-size: 0.8rem; padding: 5px 12px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; border-radius: 999px; background: var(--paper); }
+.cat-filter a:hover, .cat-filter a[aria-current='page'] { background: var(--burgundy); border-color: var(--burgundy); color: #fff; }
+
+/* Single post */
+.post-header { text-align: center; margin-bottom: 2em; }
+.post-header h1 { margin-bottom: 0.4em; }
+.post-header .meta { justify-content: center; font-size: 0.85rem; }
+.post-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2.5em; padding: 0; list-style: none; }
+
+/* Issues archive */
+.issues { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.issue { background: var(--paper); padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; height: 100%; }
+.issue-no { font-size: 2.6rem; line-height: 1; color: var(--burgundy); font-weight: 600; }
+.issue-title { font-size: 1.15rem; line-height: 1.35; flex: 1; }
+.issue-year { color: var(--muted); }
+.issue-link { font-family: var(--sans); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.issue-link.off { color: var(--muted); }
+
+/* Team */
+.team-grid { columns: 2 220px; column-gap: 40px; padding: 0; list-style: none; }
+.team-grid li { break-inside: avoid; padding: 2px 0; }
+.committee { list-style: none; padding: 0; display: grid; gap: 22px; }
+.committee strong { display: block; font-size: 1.3rem; }
+.committee span { color: var(--muted); }
+
+/* Prize cards */
+.prize-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 40px; }
+.prize-card { background: var(--paper); border: 1px solid var(--line); padding: 28px; text-align: center; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+a.prize-card:hover { box-shadow: 0 6px 20px rgba(83, 31, 44, 0.15); color: var(--ink); }
+.prize-card img { width: 140px; height: 140px; object-fit: contain; }
+.prize-card strong { font-size: 1.35rem; }
+
+/* Footer */
+.site-footer { background: var(--burgundy); color: #f4eef0; font-size: 1.05rem; }
+.site-footer a { color: #fff; }
+.footer-inner { max-width: var(--wide); margin: 0 auto; padding: 48px 16px 24px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
+.footer-inner p { margin: 0 0 6px; }
+.footer-title { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 14px !important; }
+.partners { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.partners li { background: #fff; padding: 10px 14px; height: 72px; display: flex; align-items: center; }
+.partners img { max-height: 52px; width: auto; }
+.copyright { text-align: center; font-family: var(--sans); font-size: 0.75rem; opacity: 0.7; margin: 0; padding: 0 16px 24px; }
+@media (max-width: 700px) { .footer-inner { grid-template-columns: 1fr; } }

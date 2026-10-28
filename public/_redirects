@@ -1,0 +1,39 @@
+# Old Wix URLs -> new site (Netlify / Cloudflare Pages format)
+/home  /  301
+/copie-de-accueil  /  301
+/en/copie-de-accueil  /en  301
+/members-area/*  /blog  301
+/en/members-area/*  /en/blog  301
+/blog/page/*  /blog  301
+/en/blog/page/*  /en/blog  301
+/en/post/the-humanitarian-beta-test  /en/post/copy-of-the-humanitarian-beta-test  301
+/en/post/from-the-hague-to-belém-did-the-icj-advisory-opinion-matter-at-cop30  /en/post/from-the-hague-to-belém-did-the-icj-advisory-opinion-matter-at-cop30-1  301
+/en/post/the-architecture-of-assisted-dying-lessons-from-the-french-parliamentary-debates-of-february-2026  /en/post/the-architecture-of-assisted-dying-lessons-from-the-french-parliamentary-debates-of-february-2026-1  301
+/en/post/succession-from-usurpation-venezuela-s-constitutional-transition-after-january-3  /en/post/succession-from-usurpation-venezuela-s-constitutional-transition-after-january-3-1  301
+/en/post/the-digital-jury-ai-generated-evidence-and-the-blurry-boundaries-of-truth-in-international-arbitrat-3  /en/post/the-digital-jury-ai-generated-evidence-and-the-blurry-boundaries-of-truth-in-international-arbitrat-2  301
+
+# Issue PDFs previously hosted by Wix
+/_files/ugd/1826fe_af000aa81e294a7ca79fdc8d765d37bd.pdf  /issues/rjsp-28.pdf  301
+/_files/ugd/1826fe_b7f4e8eae6764aaabce644d38318f057.pdf  /issues/rjsp-27.pdf  301
+/_files/ugd/1826fe_695f781ecf5443e6a9b0305507123124.pdf  /issues/rjsp-26.pdf  301
+/_files/ugd/1826fe_a214acd723a54baabba2e4941f7584bf.pdf  /issues/rjsp-25.pdf  301
+/_files/ugd/1826fe_fea61b61cf6b4c61885cc4ef9b5ea446.pdf  /issues/rjsp-23.pdf  301
+/_files/ugd/1826fe_75d94d2ee37346c280b37071ffcd8841.pdf  /issues/rjsp-22.pdf  301
+/_files/ugd/1826fe_dfa5086a1d064b3e8e8188f884d37e61.pdf  /issues/rjsp-21.pdf  301
+/_files/ugd/1826fe_b9d0e21a60e04938bfa63698500c6e4b.pdf  /issues/rjsp-19.pdf  301
+/_files/ugd/1826fe_e56bf8b8716e4121a0e01bede60ce391.pdf  /issues/rjsp-18.pdf  301
+/_files/ugd/1826fe_4975faf3d1594699b117aff46d0fd5d2.pdf  /issues/rjsp-16.pdf  301
+/_files/ugd/1826fe_4b45a819bd0d41709418b73afdc56f63.pdf  /issues/rjsp-13.pdf  301
+/_files/ugd/1826fe_d2b726a2ad744a57be67527d1cfd0423.pdf  /issues/rjsp-12.pdf  301
+/_files/ugd/1826fe_97421dff4ca44a2ea9b8632e4548ff08.pdf  /issues/rjsp-11.pdf  301
+/_files/ugd/1826fe_072970aad55b40ac83f2262a2f826d03.pdf  /issues/rjsp-10.pdf  301
+/_files/ugd/1826fe_112d804191a0472b995943202ab74019.pdf  /issues/rjsp-09.pdf  301
+/_files/ugd/1826fe_765ceb9c4d084a98820c551742548341.pdf  /issues/rjsp-08.pdf  301
+/_files/ugd/1826fe_763ce440bd5e48299ecf07e62ee43707.pdf  /issues/rjsp-07.pdf  301
+/_files/ugd/1826fe_ca73b7c233c445649c0778be65928509.pdf  /issues/rjsp-06.pdf  301
+/_files/ugd/1826fe_d2a742077cf4423eb1c43dd4fede6be7.pdf  /issues/rjsp-05.pdf  301
+/_files/ugd/1826fe_db5bf19fda0a426cbb59ae6963d9df4e.pdf  /issues/rjsp-04.pdf  301
+/_files/ugd/1826fe_5fc2b9452b464f33a7ae3ddf61efea95.pdf  /issues/rjsp-03.pdf  301
+/_files/ugd/1826fe_d1f1ef2d8fcf4dedb9b509da3919cbe4.pdf  /issues/rjsp-02.pdf  301
+/_files/ugd/1826fe_ac24d2a3091346228c709dff4680008a.pdf  /issues/rjsp-01.pdf  301
+/_files/ugd/1826fe_9d141cb30e434cc3b1558023c2ce386d.pdf  /issues/rjsp-14.pdf  301

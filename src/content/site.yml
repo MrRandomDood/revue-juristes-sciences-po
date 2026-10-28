@@ -1,0 +1,13 @@
+# Coordonnées affichées en bas de chaque page.
+email: revue.ajsp@gmail.com
+linkedin: https://www.linkedin.com/company/la-revue-des-juristes-de-sciences-po/
+address:
+  - 27 Rue Saint Guillaume
+  - 75007 Paris, France
+partners:
+  - name: LexisNexis
+    logo: /media/site/lexisnexis.webp
+  - name: Association des Juristes de Sciences Po
+    logo: /media/site/ajsp.webp
+  - name: Fondation Simone et Cino Del Duca
+    logo: /media/site/fondation-del-duca.jpg

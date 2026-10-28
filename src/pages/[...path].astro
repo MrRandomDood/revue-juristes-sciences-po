@@ -1,0 +1,228 @@
+---
+// Every page of the site, in both languages: French at /, English at /en/.
+import { getCollection, getEntry, render } from 'astro:content';
+import { parse } from 'yaml';
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import teamYml from '../content/team.yml?raw';
+import { PATHS, t, url, formatDate, type Lang } from '../lib/i18n';
+
+type View =
+  | { view: 'home' | 'issues' | 'blog' | 'team' | 'prizes' }
+  | { view: 'page'; page: string }
+  | { view: 'category'; category: string }
+  | { view: 'post'; post: string };
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
+  const categories = await getCollection('categories');
+  const views: [string, View][] = [
+    [PATHS.home, { view: 'home' }],
+    [PATHS.issues, { view: 'issues' }],
+    [PATHS.blog, { view: 'blog' }],
+    [PATHS.team, { view: 'team' }],
+    [PATHS.prizes, { view: 'prizes' }],
+    [PATHS.submit, { view: 'page', page: 'publier' }],
+    [PATHS.prizeRjsp, { view: 'page', page: 'prix-rjsp' }],
+    [PATHS.prizeBclp, { view: 'page', page: 'prix-bclp' }],
+    ...categories.map((c): [string, View] => [`blog/categories/${c.id}`, { view: 'category', category: c.id }]),
+    ...posts.map((p): [string, View] => [`post/${p.id}`, { view: 'post', post: p.id }]),
+  ];
+  return (['fr', 'en'] as Lang[]).flatMap((lang) =>
+    views.map(([path, v]) => ({
+      params: { path: lang === 'en' ? `en${path ? '/' + path : ''}` : path || undefined },
+      props: { lang, path, ...v },
+    }))
+  );
+}
+
+const props = Astro.props as View & { lang: Lang; path: string };
+const { lang, path } = props;
+const s = t[lang];
+
+const allPosts = (await getCollection('posts'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const categories = await getCollection('categories');
+const catName = (id: string) => categories.find((c) => c.id === id)?.data.name ?? id;
+// English pages fall back to the French text until a translation exists.
+const pageEntry = async (name: string) =>
+  (await getEntry('pages', `${lang}/${name}`)) ?? (await getEntry('pages', `fr/${name}`));
+
+let title = '';
+let description: string | undefined;
+let image: string | null | undefined;
+let Content: any = null;
+let content2: any = null;
+let pageData: any = null;
+let post: (typeof allPosts)[number] | undefined;
+let listed = allPosts;
+let issues: any[] = [];
+let readMinutes = 0;
+
+if (props.view === 'home') {
+  pageData = await pageEntry('accueil');
+  Content = (await render(pageData)).Content;
+  const latest = await pageEntry('dernier-numero');
+  content2 = { data: latest!.data, Content: (await render(latest!)).Content };
+  issues = (await getCollection('issues')).map((i) => i.data).sort((a, b) => b.number - a.number);
+  description = pageData.data.description;
+} else if (props.view === 'page' || props.view === 'prizes') {
+  pageData = await pageEntry(props.view === 'prizes' ? 'prix' : props.page);
+  Content = (await render(pageData)).Content;
+  title = pageData.data.title;
+  description = pageData.data.description;
+} else if (props.view === 'issues') {
+  issues = (await getCollection('issues')).map((i) => i.data).sort((a, b) => b.number - a.number);
+  title = s.nav.issues;
+} else if (props.view === 'blog') {
+  title = s.nav.blog;
+} else if (props.view === 'category') {
+  listed = allPosts.filter((p) => p.data.categories.includes(props.category));
+  title = catName(props.category);
+} else if (props.view === 'post') {
+  post = allPosts.find((p) => p.id === props.post)!;
+  Content = (await render(post)).Content;
+  title = post.data.title;
+  description = post.data.description || undefined;
+  image = post.data.cover;
+  readMinutes = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 230));
+} else if (props.view === 'team') {
+  title = s.nav.team;
+}
+const team = props.view === 'team' ? parse(teamYml) : null;
+const latestIssue = issues[0];
+const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
+---
+<Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
+  {props.view === 'home' && (
+    <>
+      <section class="section section--stone">
+        <div class="narrow panel prose lead"><Content /></div>
+      </section>
+      <section class="section section--burgundy">
+        <div class="container latest">
+          {latestIssue?.cover && <img src={latestIssue.cover} alt={content2.data.title} />}
+          <div>
+            <p class="badge">{s.latestIssue}</p>
+            <h2>{content2.data.title}</h2>
+            <div class="prose"><content2.Content /></div>
+            <p><a class="button" href={url(lang, PATHS.issues)}>{s.discover}</a></p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <h2 class="page-title">{s.editorials}</h2>
+          <div class="cards">{allPosts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
+          <p style="text-align:center;margin-top:40px"><a class="button" href={url(lang, PATHS.blog)}>{s.read}</a></p>
+        </div>
+      </section>
+    </>
+  )}
+
+  {(props.view === 'page' || props.view === 'prizes') && (
+    <section class="section section--stone">
+      <article class="narrow panel">
+        <h1 class="page-title">{title}</h1>
+        <div class="prose"><Content /></div>
+        {props.view === 'prizes' && (
+          <div class="prize-cards">
+            <a class="prize-card" href={url(lang, PATHS.prizeRjsp)}><img src="/media/site/logo-rjsp.png" alt="" /><strong>{s.prizes.rjsp}</strong></a>
+            <a class="prize-card" href={url(lang, PATHS.prizeBclp)}><img src="/media/site/bclp.jpg" alt="" /><strong>{s.prizes.bclp}</strong></a>
+            <div class="prize-card"><img src="/media/site/legal-change.jpg" alt="" /><strong>{s.prizes.legalChange}</strong></div>
+          </div>
+        )}
+      </article>
+    </section>
+  )}
+
+  {props.view === 'issues' && (
+    <section class="section section--stone">
+      <div class="container">
+        <h1 class="page-title">{s.nav.issues}</h1>
+        {latestIssue && (
+          <div class="panel latest" style="margin-bottom:56px">
+            {latestIssue.cover && <img src={latestIssue.cover} alt="" />}
+            <div>
+              <p class="badge">{s.latestIssue}</p>
+              <h2>{s.issueNo} {latestIssue.number} · {latestIssue.title}</h2>
+              {latestIssue.pdf
+                ? <a class="button" href={latestIssue.pdf}>{s.downloadPdf}</a>
+                : <p class="issue-year">{s.notOnline}</p>}
+            </div>
+          </div>
+        )}
+        <h2 class="page-title">{s.archives}</h2>
+        <ul class="issues">
+          {issues.slice(1).map((i) => (
+            <li class="issue">
+              <span class="issue-no">{String(i.number).padStart(2, '0')}</span>
+              <span class="issue-title">{i.title}</span>
+              {i.year && <span class="issue-year">{i.year}</span>}
+              {i.pdf
+                ? <a class="issue-link" href={i.pdf} target="_blank" rel="noopener">{s.downloadPdf} →</a>
+                : <span class="issue-link off">{s.notOnline}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {(props.view === 'blog' || props.view === 'category') && (
+    <section class="section section--stone">
+      <div class="container">
+        <h1 class="page-title">{title}</h1>
+        <ul class="cat-filter">
+          <li><a href={url(lang, PATHS.blog)} aria-current={props.view === 'blog' ? 'page' : undefined}>{s.allPosts}</a></li>
+          {usedCategories.map((c) => (
+            <li><a href={url(lang, `blog/categories/${c.id}`)} aria-current={props.view === 'category' && props.category === c.id ? 'page' : undefined}>{c.data.name}</a></li>
+          ))}
+        </ul>
+        <div class="cards">{listed.map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+
+  {props.view === 'post' && post && (
+    <section class="section section--stone">
+      <article class="narrow panel" lang={post.data.lang}>
+        <header class="post-header">
+          <h1>{post.data.title}</h1>
+          <div class="meta">
+            {post.data.author && <span>{s.by} {post.data.author}</span>}
+            <span>{formatDate(post.data.date, lang)}</span>
+            <span>{readMinutes} {s.minRead}</span>
+          </div>
+        </header>
+        <div class="prose"><Content /></div>
+        {post.data.categories.length > 0 && (
+          <ul class="post-cats cat-filter">
+            {post.data.categories.map((c) => <li><a href={url(lang, `blog/categories/${c}`)}>{catName(c)}</a></li>)}
+          </ul>
+        )}
+        <p style="text-align:center"><a href={url(lang, PATHS.blog)}>{s.backToBlog}</a></p>
+      </article>
+    </section>
+  )}
+
+  {props.view === 'team' && team && (
+    <section class="section section--stone">
+      <article class="narrow panel">
+        <h1 class="page-title">{s.nav.team}</h1>
+        <p class="page-title badge" style="display:table;margin:0 auto 2em">{team.year}</p>
+        <h2>{s.team.editorsInChief}</h2>
+        <ul class="team-grid">{team.editorsInChief.map((n: string) => <li>{n}</li>)}</ul>
+        <h2>{s.team.editorialBoard}</h2>
+        <ul class="team-grid">{team.editorialBoard.map((n: string) => <li>{n}</li>)}</ul>
+        <h2>{s.team.scientificCommittee}</h2>
+        <ul class="committee">
+          {team.scientificCommittee.map((m: { name: string; fr: string; en: string }) => (
+            <li><strong>{m.name}</strong><span>{m[lang] || m.fr}</span></li>
+          ))}
+        </ul>
+      </article>
+    </section>
+  )}
+</Base>

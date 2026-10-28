@@ -1,0 +1,120 @@
+# Numéros de la Revue, du plus récent au plus ancien.
+# Laisser "pdf" vide si le numéro n'est pas en ligne.
+issues:
+  - number: 29
+    title: "Le droit de la concurrence à la croisée des chemins"
+    year: 2026
+    cover: /media/site/issue-29.jpeg
+    pdf: ""
+  - number: 28
+    title: "Droits, asile et migrations"
+    year: ""
+    pdf: "/issues/rjsp-28.pdf"
+  - number: 27
+    title: "L'élection présidentielle américaine"
+    year: 2024
+    pdf: "/issues/rjsp-27.pdf"
+  - number: 26
+    title: "Jeux olympiques et paralympiques de 2024 : un cadre juridique original au service de cet évènement exceptionnel"
+    year: ""
+    pdf: "/issues/rjsp-26.pdf"
+  - number: 25
+    title: "Law and Technology: Towards a New Digital Rule of Law"
+    year: 2024
+    pdf: "/issues/rjsp-25.pdf"
+  - number: 24
+    title: "Droit et conflits de puissance"
+    year: 2023
+    pdf: ""
+  - number: 23
+    title: "La régulation financière après la crise de 2008 : bilan et enjeux"
+    year: 2023
+    pdf: "/issues/rjsp-23.pdf"
+  - number: 22
+    title: "La souveraineté européenne : entre interdépendance et autonomie"
+    year: 2022
+    pdf: "/issues/rjsp-22.pdf"
+  - number: 21
+    title: "La santé et le droit"
+    year: 2021
+    pdf: "/issues/rjsp-21.pdf"
+  - number: 20
+    title: "La privatisation de la justice"
+    year: 2021
+    pdf: ""
+  - number: 19
+    title: "La nouvelle place de l’État"
+    year: 2020
+    pdf: "/issues/rjsp-19.pdf"
+  - number: 18
+    title: "Le droit à l’épreuve de la crise écologique"
+    year: 2020
+    pdf: "/issues/rjsp-18.pdf"
+  - number: 17
+    title: "Les nouvelles frontières du droit"
+    year: 2019
+    pdf: ""
+  - number: 16
+    title: "Les nouveaux défis de la compliance"
+    year: 2019
+    pdf: "/issues/rjsp-16.pdf"
+  - number: 15
+    title: "Le genre au prisme du droit"
+    year: 2018
+    pdf: ""
+  - number: 14
+    title: "Quel avenir pour la coopération transatlantique?"
+    year: 2018
+    pdf: "/issues/rjsp-14.pdf"
+  - number: 13
+    title: "Le nouveau droit des obligations à l’épreuve de la pratique"
+    year: 2017
+    pdf: "/issues/rjsp-13.pdf"
+  - number: 12
+    title: "Les crises de l’Union européenne"
+    year: 2016
+    pdf: "/issues/rjsp-12.pdf"
+  - number: 11
+    title: "La Violence et le Droit"
+    year: 2016
+    pdf: "/issues/rjsp-11.pdf"
+  - number: 10
+    title: "La Stratégie Juridique au Coeur de l'Innovation Numérique"
+    year: 2015
+    pdf: "/issues/rjsp-10.pdf"
+  - number: 9
+    title: "L'exigence de transparence"
+    year: 2014
+    pdf: "/issues/rjsp-09.pdf"
+  - number: 8
+    title: "L’internationalisation du Droit de l’énergie"
+    year: 2013
+    pdf: "/issues/rjsp-08.pdf"
+  - number: 7
+    title: "La Bourse ou La Loi : Le Droit des Marchés à l’Aube du 21ème Siècle"
+    year: 2013
+    pdf: "/issues/rjsp-07.pdf"
+  - number: 6
+    title: "Rôle et Influence d'Action Publique"
+    year: 2012
+    pdf: "/issues/rjsp-06.pdf"
+  - number: 5
+    title: "Les Investissements Internationaux"
+    year: 2012
+    pdf: "/issues/rjsp-05.pdf"
+  - number: 4
+    title: "Droit et Éthiques des Affaires"
+    year: 2011
+    pdf: "/issues/rjsp-04.pdf"
+  - number: 3
+    title: "Droit et Innovation"
+    year: 2011
+    pdf: "/issues/rjsp-03.pdf"
+  - number: 2
+    title: "L'arbitrage et ses evolutions"
+    year: 2010
+    pdf: "/issues/rjsp-02.pdf"
+  - number: 1
+    title: "le Droit face à l'impératif environnemental"
+    year: 2009
+    pdf: "/issues/rjsp-01.pdf"

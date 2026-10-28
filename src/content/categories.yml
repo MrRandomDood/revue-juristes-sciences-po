@@ -1,0 +1,36 @@
+# Catégories du blog. Le "slug" apparaît dans l'adresse : /blog/categories/<slug>
+categories:
+  - slug: financial-crimes-and-corruption
+    name: "Financial Crimes/Corruption"
+  - slug: bioethics-and-medical-law-1
+    name: "Bioethics and medical law"
+  - slug: human-rights
+    name: "Human Rights"
+  - slug: comparative-law
+    name: "Comparative Law"
+  - slug: criminal-law
+    name: "Criminal Law"
+  - slug: parliamentary-debates-1
+    name: "Parliamentary debates"
+  - slug: public-international-law
+    name: "Public International Law"
+  - slug: humanitarian-law
+    name: "Humanitarian Law"
+  - slug: constitutional-law
+    name: "Constitutional Law"
+  - slug: asylum-and-refugee-law
+    name: "Asylum and Refugee Law"
+  - slug: private-law
+    name: "Private Law"
+  - slug: antitrust-and-competition
+    name: "Antitrust and Competition"
+  - slug: environment-and-climate-change-1-1
+    name: "Environment/Climate Change"
+  - slug: prix-rjsp-2026
+    name: "PRIX RJSP 2026"
+  - slug: digital-law-and-technology
+    name: "Digital Law/Technology"
+  - slug: international-arbitration
+    name: "Dispute Resolution/Arbitration"
+  - slug: eu-law
+    name: "EU Law"

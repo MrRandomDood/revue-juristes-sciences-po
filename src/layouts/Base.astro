@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { parse } from 'yaml';
+import siteYml from '../content/site.yml?raw';
+import { t, url, PATHS, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  path: string; // path without the /en prefix, used for the language switch and active nav item
+  image?: string | null;
+}
+
+const { lang, title, description, path, image } = Astro.props;
+const s = t[lang];
+const site = parse(siteYml);
+const fullTitle = title ? `${title} | ${s.siteName}` : s.siteName;
+const desc = description || (lang === 'fr'
+  ? 'La Revue des Juristes de Sciences Po, revue juridique semestrielle bilingue des étudiants de l\'École de droit de Sciences Po.'
+  : 'The Sciences Po Law Review, a bilingual biannual law journal run by students of Sciences Po Law School.');
+const otherLang: Lang = lang === 'fr' ? 'en' : 'fr';
+
+const nav = [
+  { href: PATHS.home, label: s.nav.home },
+  { href: PATHS.issues, label: s.nav.issues },
+  { href: PATHS.blog, label: s.nav.blog },
+  { href: PATHS.submit, label: s.nav.submit },
+  { href: PATHS.prizes, label: s.nav.prizes },
+  { href: PATHS.team, label: s.nav.team },
+];
+const isActive = (href: string) =>
+  href === '' ? path === '' :
+  href === PATHS.blog ? path === 'blog' || path.startsWith('blog/') || path.startsWith('post/') :
+  href === PATHS.prizes ? [PATHS.prizes, PATHS.prizeRjsp, PATHS.prizeBclp].includes(path as any) :
+  path === href;
+const canonical = new URL(url(lang, path), Astro.site);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="fr" href={new URL(url('fr', path), Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(url('en', path), Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(url('fr', path), Astro.site)} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <link rel="icon" type="image/png" href="/media/site/logo-rjsp.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="masthead">
+        <a href={url(lang)} class="brand">
+          <span class="brand-title">Revue des Juristes<br />de Sciences Po</span>
+          <img src="/media/site/logo-rjsp.png" alt="" width="96" height="96" />
+        </a>
+        <a class="lang-switch" href={url(otherLang, path)} hreflang={otherLang} lang={otherLang}>
+          {otherLang.toUpperCase()}
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Navigation">
+        <ul>
+          {nav.map((item) => (
+            <li><a href={url(lang, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-title">La Revue des Juristes de Sciences Po</p>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p><a href={site.linkedin} rel="noopener">LinkedIn</a></p>
+          <p>{site.address.map((line: string, i: number) => <>{i > 0 && <br />}{line}</>)}</p>
+        </div>
+        <div>
+          <p class="footer-title">{s.footer.partners}</p>
+          <ul class="partners">
+            {site.partners.map((p: { name: string; logo: string }) => (
+              <li><img src={p.logo} alt={p.name} loading="lazy" /></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">© {new Date().getFullYear()} La Revue des Juristes de Sciences Po</p>
+    </footer>
+  </body>
+</html>

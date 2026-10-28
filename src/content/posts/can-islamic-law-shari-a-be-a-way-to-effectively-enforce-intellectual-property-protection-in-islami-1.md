@@ -1,0 +1,117 @@
+---
+title: "Can Islamic law (Shari’a) be a way to effectively enforce intellectual property protection in Islamic states?"
+author: "Fatima Riaz"
+date: 2022-01-25T23:00:00.000Z
+lang: en
+categories: []
+cover: "/media/posts/1826fe_a5a360bf95754da184af2ece638089d1.jpg"
+description: ""
+---
+
+The perception of intellectual property (IP) as “an expensive moral luxury”[\[1\]](#_ftn1) is a common argument often spread out in emerging countries since battling against poverty, inflation, and often miserable conditions is quite rightly seen as a priority in terms of law enactment and public policy. As of today, the majority of religion-based states follow Islam, and as they face new economic challenges, one can wonder whether Islam allows or at least provides for some basic reasoning in favor of intellectual property rights which have become the cornerstone of developed countries. Thus, the question that will be at the core of this article is whether Muslim countries can base the legitimacy of their intellectual property laws on the fact that they are in accordance with Islamic principles or are they, on the contrary, incompatible with them. We will start off by explaining what Islamic law (*Shari’a)* encompasses in order to then analyze to which extent *Shari’a* can be construed as allowing intellectual property’s protection. We will then focus on Pakistan’s example for the furtherance of our analysis, and to determine how this Muslim country accommodates intellectual property protection while providing for some solution to the challenges it faces in that regard.
+
+I.               Islamic Law and its sources
+
+    *Shari’a* literally means the “path towards the law of God”, it is comprised of the holy scripture of the *Qur’an* as it was revealed to the Prophet Muhammad over a 22-year period. Islam constitutes a way of life, in that sense, it encompasses all of its aspects from the five mandatory prayers to the way of governing[\[RG1\]](#_msocom_1)  society.
+
+**A.             The divine sources**
+
+    *Qur’an* is divided into verses revealed during the Prophet’s time in Mecca and others while he was in Medina. The latter hold more importance as they are mostly related to leadership and the art of governing.
+
+    The *Qur’an* is not a code of law where legal dispositions regulating the State can be found, rather it only contains a few laws per se. However, it is undeniably the main source of Islamic law in the sense that no other law enacted in an Islamic State can invalidate the Qur’anic verses. Among the few provisions stated in the *Qur’an,* Muslim jurists have come up with a classification that either qualifies them as mandatory, recommended, neutral or reprehensible. As Silvia Beltrametti duly points out: “Qur'anic principles are not unbending as it might appear on the surface but show a considerable degree of flexibility and pragmatism.”[\[2\]](#_ftn2) It is precisely this flexibility and pragmatism that need to come into play while contemporary Islamic states try to implement effective and enforceable intellectual property protection which we will address later on in this article.
+
+    The *Sunna* is the second most important source of Islamic law, it refers to the way the Prophet Muhammad lived his life and Muslims are advised to follow this path which is found in the stories (*Hadiths)* narrated by the Prophet’s companions about his practices, advices, and way of life. *Hadiths* are often useful in understanding the context and the interpretation of the verses revealed in the *Qur’an.* For a *Hadith* to be qualified as authentic, the chain of narration from which it has been transmitted has to be exempt from gaps.
+
+***B.***             **The earthly sources and the four Islamic schools of law**
+
+    When *Qur’an* and the *Sunna* are silent on a particular topic, an interpretive approach must come into play in order to apply and enlighten principles from the Holy sources to make them applicable in today’s world. *Tafseer* is the third source of Islamic law and it refers to the exegesis of the *Qur’an* and the *Hadiths.*
+
+    In order to understand how the fourth source of Islamic law which is *fiqh* (jurisprudence) works, one needs to become familiar with the four Islamic Schools of Law that are the Hanafi School, the Maliki School, the Shafi’I School and the Hanbali School.[\[3\]](#_ftn3) These schools of thoughts originate from the names of the four Muslim jurists who developed four different ways and degrees to which core Islamic principles are to be applied to issues and situations that are not addressed in the Holy sources that are the *Qur’an* and the *Sunna.* Finally, for the purpose of fully comprehending the science of *fiqh,* we will get into some details about different techniques used to reach a legal solution in line with Shari’a.
+
+    First and foremost, there is the technique of *ijma* which means “consensus among scholars”. This method is derived from the following *Hadiths* of the Prophet: "Whatever the Muslims deem to be good is good in the eyes of God" and "My community will never agree on error". Thus, it legitimizes jurists’ authority of interpretation so that Islam can be the dynamic and adaptable religion that it is through the consensus required among the community regarding particular issues. *Qiyas* is another technique of interpretation that allows jurists to broaden the scope of application of an already established rule on current issues that did not exist or were not prevalent at the time of the Prophet. This one is based on the analogical method where a solution is found by way of deduction. Then, there are *istihsan* (a decision based on the balance between public interest and equity)*, istihab (the* “presumption of continuity” which means that something is permissible until someone proves that it is prohibited), and *urf* (local custom) that are all legal tools and methods that jurists use to come to a solution not too far-fetched from Islamic principles.  
+
+II.              *Shari’a* and the protection of intellectual property
+
+**A.             The debate surrounding IP protection in Islamic juristic doctrine.**
+
+    In order to understand to what extent Islamic law accommodates IP protection, one must look at the doctrinal debate between those that found the evidence flinching more towards the opposition between Islam and IP standards and those that believe that IP protection can be derived from some core principles that are stated in the divine sources.[\[4\]](#_ftn4) To begin with, we will focus on the arguments that seem to suggest that Islam does not provide for any evidence justifying the enactment of IP protection laws, and while working our way through them, we will demonstrate their weakness by putting forth convincing counter points.
+
+    First of all, the prohibition of the concealment of knowledge is a legitimate instruction from the Prophet who said: “the one who conceals knowledge would appear on the Day of resurrection as reined in a bridle of fire” (*Ṣaḥīḥ Ibn Ḥibbān*).[\[5\]](#_ftn5) Nevertheless, as Elmahjub points out, the way copyright and patent protection are actually laid out in the Western system cannot be considered as “concealment of knowledge” since it provides for limitations such as the fact that IP rights over a subject matter are not everlasting. One needs to renew them after a certain period of time, and most importantly, the rights over a subject matter become void sometime after their owner’s death. Moreover, in practice, judges over the world, and in Pakistan for the purpose of this article, have “held that copyright does not protect an idea but only the expression of an idea”, as stated by a Pakistani court \[*Independent Media v. Ali Saleem and Anr. (2006 C L D 97 (Karachi)\]*.
+
+    In addition to that, an extension of the notion of private property with the aim of encompassing intellectual property protection could be conceivable,[\[6\]](#_ftn6) however we must keep in mind the reduced scope of IP’s subject matter in Islam.
+
+    Indeed, on one hand, the concept of private property is enshrined in Islamic legal theory (although not without any limitation as in Islam everything ultimately only belongs to Allah),[\[7\]](#_ftn7) thus enabling jurists to fit IP protection into the category of private property. The relevant question here was to determine whether intangible property can be categorized as “property” in the Islamic sense. This has been an important topic of discussion between the four Islamic schools of Law who relatively unanimously agreed upon the fact that intangibles can be construed as “property” (*al-mal*) and thus be protected the same way tangible property such as land, buildings or cars that one owns are protected from theft and other forms of expropriation by legal rules.[\[8\]](#_ftn8)
+
+    On the other hand, where IP protection’s subject matter is the broadest possible under international IP standards whereas *Shari’a* would most definitely allow for more restriction.[\[9\]](#_ftn9)[\[RG2\]](#_msocom_2)  Indeed, the protection of trademarks, copyrights and patents are compatible with Islamic law, however the subject matter of these trademarks, copyrights and patents need to stay within the limits of what is allowed according to Islamic law. Therefore, in an Islamic governed country, one would not be able to register a champagne brand since consumption of alcohol is forbidden. Hence, the only limit to IP protection is that the subject matter must be in accordance with what is allowed in Islamic law.
+
+    Moreover, another argument against the protection of IP in Islam is given by Elmahjub who uses the notion of *maysir* in order to demonstrate that since it is etymologically related to the word *yusr*, which literally means “easy”, it also includes the notion of acquiring wealth easily without exerting any effort which is forbidden in Islam, thus rendering financially benefiting from ones IP rights over something islamically unlawful. Nevertheless, the author has a very broad conception of the notion of *maysir* which generally only refers to gambling and speculation.[\[10\]](#_ftn10)[\[RG3\]](#_msocom_3)  Therefore, the false premise of this argument renders it unsubstantiated.
+
+    Last but not least, Islam commands the “condemnation of deceitful practices” as it is written in the *Qur’an: “Verily, Allah commands that you should render back the trusts to those, to whom they are due”*. This verse clearly prohibits deceiving people and actions that are equivalent to cheating and treacherous practices such as stealing a music piece, copying it, and selling it or even stealing a patented idea in order to use it for one’s own personal benefit. This last injunction clearly covers the whole above-mentioned topic since infringing upon someone’s IP rights can is a disloyal and treacherous practice.  
+
+    We have discussed several arguments in favor and against IP protection in Islam, but the question remains: can we firmly assert once and for all whether IP protection is compatible or not according to Islamic principle? 
+
+**B.             Intellectual property protection in Islamic law: permissible or forbidden?**
+
+  This question has been the subject of a myriad of doctrinal quarrels between those that view intellectual property protection as another product of the West’s dominance on international law and those who argue that since *Shari’a* has not openly forbidden intellectual property’s protection,[\[11\]](#_ftn11) it is permissible and even indirectly substantiated by the *Qur’an* and *Hadiths* if we adopt a juristic approach of interpretation.[\[12\]](#_ftn12) 
+
+    Taking a textual-based approach justifying the permissibility of intellectual property protection in Islam would require finding unequivocal mention of it either in the *Qur’an* or in the *Sunna* which has not been possible to date. The only solution Muslim scholars had was resorting to the use of the technique of interpretations discussed above in order to issue *fatwas* allowing IP protection. As a matter of fact, Elmahjub illustrates this point with the *fatwa* of the late Mufti of Pakistan, Sheikh Muhammed Shafe’e, stating that “authorship and inventions are acceptable as a means of income, but it is not permissible to exclude others from using them, as they represent only an abstract right which is not protected according to *Shari’a*’s rules.”[\[13\]](#_ftn13) However, he admits that this *fatwa* is very weak since it has been highly opposed and is not based on the *Qur’an* nor the *Sunna*, hence making it invalid.
+
+    Muslim jurists’ textual-based approach having failed, they knew that they would have to find evidence from the *Qur’an* and *Hadiths* and use broader Islamic principles for the purpose of justifying and enforcing IP protection laws. In that perspective, they have used techniques of interpretation, and more precisely *fatwas* (legal opinions) that are easily refutable due to their lack of textual basis, a remedy that has also failed since there is here a sort of vicious cycle: there is no clear allowance of IP protection in the textual sources, so jurists are bound to resort to interpretation. However, the most commonly used technique of issuing *fatwas* failed precisely because of their lack of textual support.
+
+III.            Study case: Pakistan, a Muslim country torn between the Western pressure to comply with its IP protection standards and the Islamic doctrinal uncertainty about the permissibility of IP protection.
+
+**A.             The Western pressure towards the enactment of IP protection laws.**
+
+    International organizations such as the World Intellectual Property Organization (WIPO) and the OECD, as well as the United States through their *Priority Watch List* (which hierarchically compiles the countries’ lack of intellectual property protection), are considered to be the main vehicles for the much-criticized “Western intellectual property propaganda”. It is however understandable that these institutions want to further this agenda as in their eyes it is mutually benefitting that countries like Pakistan enact IP protection laws as it can be attractive to do business there and the country can in return take advantage of the economic profit derived from foreign investments.
+
+    Pakistan is a signatory to various intellectual property protection treaties and conventions.[\[14\]](#_ftn14) One of the most important is the International Covenant on Economic, Social and Cultural Rights (ICESCR) ratified by the country in 2008 which requires in its article 15 that *“The States Parties to the present Covenant recognize the right of everyone: (…) to benefit from the protection of the moral and material interests resulting from any scientific, literary or artistic production of which he is the author.”* In addition to that, Pakistan is party to the two most important IP protection legal instruments (last modified in 1979) which are the Paris Convention covering the protection of industrial property and the Berne Convention referring to the protection of literary and artistic property. These two conventions were implemented under the authority of the World Intellectual Property Organization (WIPO). Lastly, since Pakistan is a member of the World Trade Organization (WTO), it has ratified the Agreement on Trade-Related Aspects of Intellectual Property Rights (TRIPS).
+
+It is worth noticing that these international covenants mirror the great similarities between the basic foundation of the Western and Islamic principles (e.g. the sacredness of private property in both systems), as well as the discrepancies between them in terms of particular dispositions such as the period during which an IP right is protected (presumably shorter according to the Islamic standard of justice).
+
+**B.             The challenges Pakistan encounters in terms of IP protection laws’ enforcement.**
+
+    International organizations and Western leading countries have indeed put some pressure on Pakistan among other developing countries regarding the requirement to enact IP protection laws as they want their companies’ and citizens’ works to be protected. Nevertheless, the Pakistani government and its legislature are the only ones to be held responsible when it comes to the lack of enforceability of IP protection laws, the raging copyright infringements and the exponential amount of film, music, and literary works’ piracy in the country. On the other hand, from the point of view of Pakistani citizens, there are some concerns that need to be taken into account when implementing and sanctioning IP rights infringements.
+
+    The main argument put forward by ordinary people is that they need to have access to free and open knowledge in a poor country where buying schoolbooks is extremely expensive, thus pushing them to buy unlawfully copied books.[\[15\]](#_ftn15) While this is a valid point, it can be countered by giving to the State the responsibility of providing books at an affordable price for the most vulnerable. In order to do that, a country like Pakistan would need to first and foremost start by putting in place an effective tax system of which a sophisticated outline is already provided in the Qur’an and Hadiths.[\[16\]](#_ftn16) Notwithstanding the great pertinence of this point, the only solution is that the State finally takes up its responsibility of caring for the most vulnerable so that innovation can thrive through IP protection.
+
+    Therefore, we have demonstrated that intellectual property protection can be found in Islamic law by way of interpretation of broader Islamic principles. However, a common misconception resides in the fact that Islam has put limitations to the admissibility and exploitation of IP rights whereas the Western system insists upon the greatest protection possible. In reality, Islam operates the same balance of interests between justice and equality as Western countries. Indeed, one cannot forbid someone from benefitting from the fruit of his hard-earned work, similarly, one cannot prevent someone from accessing knowledge to which he is entitled. The only difference seems to be the the *ratio legis* behind it: Islam allows IP protection for the sake of upholding its standards of justice while Western philosophy encourages IP protection because of its economic benefits.
+
+    This article began by stating that the protection of intellectual property is understandably not considered to be a priority by citizens of Muslim countries. Nevertheless, although it is not required by *Shari’a*, it is also not forbidden by it, hence if Muslim countries want to start attaining the level of economic development that Western countries have, they need to enact laws effectively protecting intellectual property. In order to do that properly without any cultural, social or religious criticism and backlash from their own citizens, these countries should base and derive their IP laws on and from Islamic principles while guaranteeing that they are robust enough and practically enforceable by bullet-proofing them with Western IP protection standards. This will give legitimacy and will encourage Muslim citizens to respect IP rights not because the State requires it, but because their beliefs command it.
+
+[\[1\]](#_ftnref1) [DAWN.COM](http://DAWN.COM), Lack of awareness about intellectual property rights, \[online\] Available at: [https://www.dawn.com/news/205920/lack-of-awareness-about-intellectual-property-rights](https://www.dawn.com/news/205920/lack-of-awareness-about-intellectual-property-rights) (2006), (Accessed 6 November 2021).
+
+[\[2\]](#_ftnref2) BELTRAMETTI, Silvia, “The Legality of Intellectual Property Rights under Islamic Law”. In: *The Prague Yearbook of Comparative Law* 2009, Mach, T. et al. (Eds)., Prague, (2010), pp. 55-94.
+
+[\[3\]](#_ftnref3) These are the Sunni schools of law, but it is important to note that the Shias have their own schools of thought which are out of our topic since the country of our case study, Pakistan, is primarily a Sunni governed country.
+
+[\[4\]](#_ftnref4) MUSTAFA ELMAHJUB, Ezieddin, “An Islamic Perspective on the Theories of Intellectual Property”, *Springer International Publishing Switzerland*, (2015).
+
+[\[5\]](#_ftnref5) AMANULLAH, Muhammad, "Intellectual Property." In *The \[Oxford\] Encyclopedia of Islam and Law*. Oxford Islamic Studies Online, Available at: [http://www.oxfordislamicstudies.com/article/opr/t349/e0054](http://www.oxfordislamicstudies.com/article/opr/t349/e0054) (Accessed 13 November 2021).
+
+[\[6\]](#_ftnref6) MALKAWI, Bashar H., “Intellectual Property Protection from a Sharia Perspective”*, Southern Cross University Law Review* (2013).
+
+[\[7\]](#_ftnref7) For a deeper understanding of the concept of private property in Islam and particularly in Pakistan, *see* IQBAL Nuzhat, “The Concept of Land Ownership in Islam and Poverty Alleviation in Pakistan”, *The Pakistan Development Review*, 39: 4 Part II, (Winter 2000) pp. 649–662.
+
+[\[8\]](#_ftnref8) For a more detailed explanation of the compatibility between Fintech and Islamic finance, *see* OSENI, Umar A., ALI, S. Nazim, “Fintech in Islamic Finance: Theory and Practice”, Routledge, 2019.
+
+[\[9\]](#_ftnref9) There is a saying in the US that “anything under the sun made by man can be patented”, which has been used by the US. Supreme Court in *Diamond v. Chakrabarty*, No. 79-136 *(1980),* emphasizing the extensiveness of IP’s subject matter in the Western system.
+
+[\[10\]](#_ftnref10) “Ma\[y\] sir is prohibited in Islamic finance because it creates wealth from chance instead of productive activity.” It is a concept that has different consequences in Islamic banking law in which some specific banking operations are forbidden on the basis of this concept.
+
+[\[11\]](#_ftnref11) *See* MUSTAFA ELMAHJUB, Ezieddin, *An Islamic Vision of Intellectual* Property (2018) for whom intellectual property "is a product of the Western normative environment".
+
+[\[12\]](#_ftnref12) TABREZ Y., Ebrahim, "Intellectual Property through a Non-Western Lens: Patents in Islamic Law," *Georgia State University Law Review* 37, no. 3 (Spring 2021): 789-904.
+
+[\[13\]](#_ftnref13) MUSTAFA ELMAHJUB, Ezieddin, “An Islamic Perspective on the Theories of Intellectual Property”, *Springer International Publishing Switzerland*, (2015).
+
+[\[14\]](#_ftnref14) Ibid.
+
+[\[15\]](#_ftnref15) [DAWN.COM](http://DAWN.COM), Lack of awareness about intellectual property rights, \[online\] Available at: [https://www.dawn.com/news/205920/lack-of-awareness-about-intellectual-property-rights](https://www.dawn.com/news/205920/lack-of-awareness-about-intellectual-property-rights) (2006), (Accessed 6 November 2021).
+
+[\[16\]](#_ftnref16) For more information on what taxation system is permitted under Islamic law, see: [https://islamicmarkets.com/education/principles-of-taxation-policy](https://islamicmarkets.com/education/principles-of-taxation-policy) 
+
+ [\[RG1\]](#_msoanchor_1)I wonder if the sentence wouldn’t make more sense with something indicating what is governed exactly. Could we use “society”?
+
+ [\[RG2\]](#_msoanchor_2)Would you be able to find a source for this saying regarding patentability in the US?
+
+ [\[RG3\]](#_msoanchor_3)I would suggest that you include in the footnote the explanation you’re referring to on PracticalLaw. Using a hyperling in this context is a last resort solution.

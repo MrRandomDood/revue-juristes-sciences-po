@@ -1,0 +1,167 @@
+# Configuration of the web editor (https://app.pagescms.org).
+# Editors sign in with their GitHub account; every save is a commit and the site redeploys automatically.
+
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: posts
+    label: Articles du blog
+    type: collection
+    path: src/content/posts
+    filename: '{primary}.md'
+    view:
+      fields: [title, author, date, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: author
+        label: Auteur·e
+        type: string
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+      - name: lang
+        label: Langue de l'article
+        type: select
+        default: fr
+        options:
+          values:
+            - { value: fr, label: Français }
+            - { value: en, label: English }
+      - name: categories
+        label: Catégories
+        type: select
+        options:
+          multiple: true
+          values:
+            - { value: antitrust-and-competition, label: Antitrust and Competition }
+            - { value: asylum-and-refugee-law, label: Asylum and Refugee Law }
+            - { value: bioethics-and-medical-law-1, label: Bioethics and medical law }
+            - { value: comparative-law, label: Comparative Law }
+            - { value: constitutional-law, label: Constitutional Law }
+            - { value: criminal-law, label: Criminal Law }
+            - { value: digital-law-and-technology, label: Digital Law/Technology }
+            - { value: international-arbitration, label: Dispute Resolution/Arbitration }
+            - { value: environment-and-climate-change-1-1, label: Environment/Climate Change }
+            - { value: eu-law, label: EU Law }
+            - { value: financial-crimes-and-corruption, label: Financial Crimes/Corruption }
+            - { value: human-rights, label: Human Rights }
+            - { value: humanitarian-law, label: Humanitarian Law }
+            - { value: parliamentary-debates-1, label: Parliamentary debates }
+            - { value: prix-rjsp-2026, label: PRIX RJSP 2026 }
+            - { value: private-law, label: Private Law }
+            - { value: public-international-law, label: Public International Law }
+      - name: cover
+        label: Image de couverture
+        type: image
+        options:
+          path: public/media/posts
+      - name: description
+        label: Résumé (affiché sur les cartes et dans Google)
+        type: text
+      - name: draft
+        label: Brouillon (non publié)
+        type: boolean
+        default: false
+      - name: body
+        label: Texte de l'article
+        type: rich-text
+
+  - name: issues
+    label: Numéros de la Revue
+    type: file
+    path: src/content/issues.yml
+    fields:
+      - name: issues
+        label: Numéros (le plus récent en premier)
+        type: object
+        list: true
+        fields:
+          - { name: number, label: Numéro, type: number, required: true }
+          - { name: title, label: Titre, type: string, required: true }
+          - { name: year, label: Année, type: string }
+          - name: cover
+            label: Couverture (seulement pour le dernier numéro)
+            type: image
+          - name: pdf
+            label: PDF
+            type: file
+            options:
+              input: public/issues
+              output: /issues
+              extensions: [pdf]
+
+  - name: team
+    label: L'équipe
+    type: file
+    path: src/content/team.yml
+    fields:
+      - { name: year, label: Année, type: string }
+      - { name: editorsInChief, label: Rédacteurs en chef, type: string, list: true }
+      - { name: editorialBoard, label: Comité de Rédaction, type: string, list: true }
+      - name: scientificCommittee
+        label: Comité Scientifique
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Nom, type: string }
+          - { name: fr, label: Présentation (FR), type: text }
+          - { name: en, label: Présentation (EN), type: text }
+
+  - name: pages-fr
+    label: Pages (français)
+    type: collection
+    path: src/content/pages/fr
+    view:
+      fields: [title]
+    fields: &page_fields
+      - { name: title, label: Titre, type: string, required: true }
+      - { name: description, label: Description (Google), type: text }
+      - { name: body, label: Contenu, type: rich-text }
+
+  - name: pages-en
+    label: Pages (English)
+    type: collection
+    path: src/content/pages/en
+    view:
+      fields: [title]
+    fields: *page_fields
+
+  - name: categories
+    label: Catégories du blog
+    type: file
+    path: src/content/categories.yml
+    fields:
+      - name: categories
+        label: Catégories
+        type: object
+        list: true
+        fields:
+          - { name: slug, label: Identifiant (dans l'adresse), type: string, required: true }
+          - { name: name, label: Nom affiché, type: string, required: true }
+
+  - name: site
+    label: Coordonnées et partenaires
+    type: file
+    path: src/content/site.yml
+    fields:
+      - { name: email, label: E-mail, type: string }
+      - { name: linkedin, label: LinkedIn, type: string }
+      - { name: address, label: Adresse, type: string, list: true }
+      - name: partners
+        label: Partenaires
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Nom, type: string }
+          - { name: logo, label: Logo, type: image }
