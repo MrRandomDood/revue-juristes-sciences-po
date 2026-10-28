@@ -98,34 +98,74 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
   {props.view === 'home' && (
     <>
-      <section class="section section--stone">
-        <div class="narrow panel prose lead"><Content /></div>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="eyebrow">{s.hero.eyebrow}</p>
+            <h1>{pageData.data.title}</h1>
+            <p class="hero-lead">{s.hero.lead}</p>
+            <p class="actions">
+              <a class="button button--light" href={url(lang, PATHS.issues)}>{s.latestIssue} →</a>
+              <a class="button button--ghost" href={url(lang, PATHS.submit)}>{s.hero.submit}</a>
+            </p>
+            <dl class="stats">
+              <div><dt>{s.hero.stats.founded}</dt><dd>2009</dd></div>
+              <div><dt>{s.hero.stats.issues}</dt><dd>{issues.length}</dd></div>
+              <div><dt>{s.hero.stats.bilingual}</dt><dd>FR · EN</dd></div>
+            </dl>
+          </div>
+          {latestIssue?.cover && (
+            <a class="hero-cover" href={url(lang, PATHS.issues)}>
+              <img src={latestIssue.cover} alt={content2.data.title} width="420" height="586" />
+            </a>
+          )}
+        </div>
       </section>
-      <section class="section section--burgundy">
-        <div class="container latest">
-          {latestIssue?.cover && <img src={latestIssue.cover} alt={content2.data.title} />}
+      <section class="section">
+        <div class="container split">
+          <p class="eyebrow">{s.about}</p>
+          <div class="prose lead"><Content /></div>
+        </div>
+      </section>
+      <section class="section section--stone">
+        <div class="container feature">
+          {latestIssue && <p class="feature-no" aria-hidden="true"><span>{s.issueNo}</span>{latestIssue.number}</p>}
           <div>
-            <p class="badge">{s.latestIssue}</p>
+            <p class="eyebrow">{s.latestIssue}</p>
             <h2>{content2.data.title}</h2>
             <div class="prose"><content2.Content /></div>
-            <p><a class="button" href={url(lang, PATHS.issues)}>{s.discover}</a></p>
+            <p class="actions"><a class="button" href={url(lang, PATHS.issues)}>{s.discover} →</a></p>
           </div>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <h2 class="page-title">{s.editorials}</h2>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">{s.editorials}</p>
+              <h2>{s.latestPosts}</h2>
+            </div>
+            <a class="more" href={url(lang, PATHS.blog)}>{s.allPosts} →</a>
+          </div>
           <div class="cards">{allPosts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
-          <p style="text-align:center;margin-top:40px"><a class="button" href={url(lang, PATHS.blog)}>{s.read}</a></p>
         </div>
       </section>
     </>
   )}
 
+  {props.view !== 'home' && props.view !== 'post' && (
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">{s.siteName}</p>
+        <h1>{title}</h1>
+        {props.view === 'team' && team && <p class="page-hero-sub">{team.year}</p>}
+      </div>
+    </section>
+  )}
+
   {(props.view === 'page' || props.view === 'prizes') && (
     <section class="section section--stone">
       <article class="narrow panel">
-        <h1 class="page-title">{title}</h1>
         <div class="prose"><Content /></div>
         {props.view === 'prizes' && (
           <div class="prize-cards">
@@ -141,12 +181,11 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
   {props.view === 'issues' && (
     <section class="section section--stone">
       <div class="container">
-        <h1 class="page-title">{s.nav.issues}</h1>
         {latestIssue && (
-          <div class="panel latest" style="margin-bottom:56px">
+          <div class="panel feature" style="margin-bottom:32px">
             {latestIssue.cover && <img src={latestIssue.cover} alt="" />}
             <div>
-              <p class="badge">{s.latestIssue}</p>
+              <p class="eyebrow">{s.latestIssue}</p>
               <h2>{s.issueNo} {latestIssue.number} · {latestIssue.title}</h2>
               {latestIssue.pdf
                 ? <p><a class="button" href="#flipbook">{s.browse}</a> <a class="button" href={latestIssue.pdf} target="_blank" rel="noopener">{s.downloadPdf}</a></p>
@@ -159,7 +198,12 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
             <Flipbook pdf={latestIssue.pdf} lang={lang} title={`${s.issueNo} ${latestIssue.number} · ${latestIssue.title}`} />
           </div>
         )}
-        <h2 class="page-title">{s.archives}</h2>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">{s.issueNo} {issues.at(-1)?.number} – {issues[1]?.number}</p>
+            <h2>{s.archives}</h2>
+          </div>
+        </div>
         <ul class="issues">
           {issues.slice(1).map((i) => (
             <li class="issue">
@@ -179,7 +223,6 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
   {(props.view === 'blog' || props.view === 'category') && (
     <section class="section section--stone">
       <div class="container">
-        <h1 class="page-title">{title}</h1>
         <ul class="cat-filter">
           <li><a href={url(lang, PATHS.blog)} aria-current={props.view === 'blog' ? 'page' : undefined}>{s.allPosts}</a></li>
           {usedCategories.map((c) => (
@@ -202,6 +245,7 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
             <span>{readMinutes} {s.minRead}</span>
           </div>
         </header>
+        {post.data.cover && !post.body?.includes(post.data.cover) && <img class="post-cover" src={post.data.cover} alt="" />}
         <div class="prose"><Content /></div>
         {post.data.categories.length > 0 && (
           <ul class="post-cats cat-filter">
@@ -216,9 +260,7 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
   {props.view === 'team' && team && (
     <section class="section section--stone">
       <article class="narrow panel">
-        <h1 class="page-title">{s.nav.team}</h1>
-        <p class="page-title badge" style="display:table;margin:0 auto 2em">{team.year}</p>
-        <h2>{s.team.editorsInChief}</h2>
+        <h2 style="margin-top:0">{s.team.editorsInChief}</h2>
         <ul class="team-grid">{team.editorsInChief.map((n: string) => <li>{n}</li>)}</ul>
         <h2>{s.team.editorialBoard}</h2>
         <ul class="team-grid">{team.editorialBoard.map((n: string) => <li>{n}</li>)}</ul>
