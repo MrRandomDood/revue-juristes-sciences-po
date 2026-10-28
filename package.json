@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^5.18.2",
+    "page-flip": "^2.0.7",
+    "pdfjs-dist": "^6.4.299",
     "yaml": "^2.9.1"
   },
   "devDependencies": {

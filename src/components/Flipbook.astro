@@ -1,0 +1,108 @@
+---
+// Interactive page-turning viewer for an issue PDF. Pages are drawn with pdf.js as the reader gets near them.
+import { t, type Lang } from '../lib/i18n';
+
+interface Props { pdf: string; lang: Lang; title: string }
+const { pdf, lang, title } = Astro.props;
+const s = t[lang].flipbook;
+---
+<div class="flipbook" id="flipbook" tabindex="0" data-pdf={pdf} data-of={s.of}>
+  <div class="flipbook-stage">
+    <div class="flipbook-book" aria-label={title}></div>
+    <p class="flipbook-loading">{s.loading}</p>
+    <p class="flipbook-failed"><a href={pdf}>{s.failed}</a></p>
+  </div>
+  <div class="flipbook-bar">
+    <button type="button" class="flipbook-prev" aria-label={s.prev}>←</button>
+    <span class="flipbook-count" aria-live="polite"></span>
+    <button type="button" class="flipbook-next" aria-label={s.next}>→</button>
+    <button type="button" class="flipbook-full">{s.fullscreen}</button>
+    <a href={pdf} target="_blank" rel="noopener">{s.download}</a>
+  </div>
+</div>
+
+<script>
+  import * as pdfjs from 'pdfjs-dist';
+  import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+  import { PageFlip } from 'page-flip/dist/js/page-flip.module.js';
+
+  pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+
+  // Pages drawn ahead of and behind the current spread.
+  const AHEAD = 4;
+
+  for (const root of document.querySelectorAll<HTMLElement>('.flipbook')) {
+    const book = root.querySelector<HTMLElement>('.flipbook-book')!;
+    const count = root.querySelector<HTMLElement>('.flipbook-count')!;
+
+    const start = async () => {
+      const doc = await pdfjs.getDocument({ url: root.dataset.pdf! }).promise;
+      const first = (await doc.getPage(1)).getViewport({ scale: 1 });
+      const width = 500;
+      const height = Math.round((width * first.height) / first.width);
+
+      const pages = Array.from({ length: doc.numPages }, (_, i) => {
+        const el = document.createElement('div');
+        el.className = 'flipbook-page';
+        if (i === 0 || i === doc.numPages - 1) el.dataset.density = 'hard';
+        book.append(el);
+        return el;
+      });
+
+      const drawn = new Set<number>();
+      const draw = async (i: number) => {
+        if (i < 0 || i >= pages.length || drawn.has(i)) return;
+        drawn.add(i);
+        const page = await doc.getPage(i + 1);
+        const scale = (2 * height) / page.getViewport({ scale: 1 }).height;
+        const viewport = page.getViewport({ scale: Math.min(scale, 2.5) });
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvas, viewport }).promise;
+        pages[i].append(canvas);
+      };
+      const drawAround = (i: number) => {
+        for (let d = 0; d <= AHEAD; d++) { draw(i + d); draw(i - d); }
+      };
+
+      const flip = new PageFlip(book, {
+        width, height,
+        size: 'stretch',
+        minWidth: 240, maxWidth: 900, minHeight: 340, maxHeight: 1270,
+        showCover: true,
+        maxShadowOpacity: 0.4,
+        mobileScrollSupport: true,
+      });
+      flip.loadFromHTML(pages);
+
+      const update = () => {
+        const i = flip.getCurrentPageIndex();
+        count.textContent = `${i + 1} ${root.dataset.of} ${pages.length}`;
+        drawAround(i);
+      };
+      flip.on('flip', update);
+      update();
+      root.classList.add('is-ready');
+
+      root.querySelector('.flipbook-prev')!.addEventListener('click', () => flip.flipPrev());
+      root.querySelector('.flipbook-next')!.addEventListener('click', () => flip.flipNext());
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') flip.flipPrev();
+        if (e.key === 'ArrowRight') flip.flipNext();
+      });
+    };
+
+    root.querySelector('.flipbook-full')!.addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else root.requestFullscreen?.();
+    });
+
+    // Only download the PDF once the viewer scrolls into view.
+    new IntersectionObserver((entries, observer) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      observer.disconnect();
+      start().catch((err) => { console.error('Flipbook:', err); root.classList.add('is-failed'); });
+    }, { rootMargin: '300px' }).observe(root);
+  }
+</script>

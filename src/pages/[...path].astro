@@ -4,6 +4,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import { parse } from 'yaml';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
+import Flipbook from '../components/Flipbook.astro';
 import teamYml from '../content/team.yml?raw';
 import { PATHS, t, url, formatDate, type Lang } from '../lib/i18n';
 
@@ -148,9 +149,14 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
               <p class="badge">{s.latestIssue}</p>
               <h2>{s.issueNo} {latestIssue.number} · {latestIssue.title}</h2>
               {latestIssue.pdf
-                ? <a class="button" href={latestIssue.pdf}>{s.downloadPdf}</a>
+                ? <p><a class="button" href="#flipbook">{s.browse}</a> <a class="button" href={latestIssue.pdf} target="_blank" rel="noopener">{s.downloadPdf}</a></p>
                 : <p class="issue-year">{s.notOnline}</p>}
             </div>
+          </div>
+        )}
+        {latestIssue?.pdf && (
+          <div class="panel" style="margin-bottom:56px">
+            <Flipbook pdf={latestIssue.pdf} lang={lang} title={`${s.issueNo} ${latestIssue.number} · ${latestIssue.title}`} />
           </div>
         )}
         <h2 class="page-title">{s.archives}</h2>
