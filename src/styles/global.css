@@ -176,8 +176,6 @@ main { min-height: 60vh; }
   mask-image: linear-gradient(to bottom, #000, transparent 85%);
 }
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 0.75fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
-.hero .eyebrow { color: var(--stone); }
-.hero .eyebrow::before { content: none; }
 .hero h1 { font-size: clamp(2.8rem, 7vw, 5.4rem); font-weight: 500; line-height: 0.98; margin: 0 0 24px; }
 .hero-lead { font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.45; color: rgba(255, 255, 255, 0.85); max-width: 34ch; margin: 0; }
 .stats { display: flex; flex-wrap: wrap; gap: 16px 48px; margin: 48px 0 0; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.18); }

@@ -23,7 +23,6 @@ export const t = {
     nav: { home: 'Accueil', issues: 'Nos Revues semestrielles', blog: 'Blog', prizes: 'Prix et Distinctions', team: "L'équipe", submit: 'Publier' },
     menu: 'Menu',
     hero: {
-      eyebrow: 'Revue juridique semestrielle · Depuis 2009',
       lead: 'Revue bilingue entièrement conçue par les étudiants de l’École de droit de Sciences Po, publiée par LexisNexis.',
       submit: 'Proposer un article',
       stats: { founded: 'Année de fondation', issues: 'Numéros publiés', bilingual: 'Revue bilingue' },
@@ -56,7 +55,6 @@ export const t = {
     nav: { home: 'Home', issues: 'Our Biannual Issues', blog: 'Blog', prizes: 'Prizes and Awards', team: 'The Team', submit: 'Submit' },
     menu: 'Menu',
     hero: {
-      eyebrow: 'Biannual law review · Since 2009',
       lead: 'A bilingual journal run entirely by students of Sciences Po Law School, published by LexisNexis.',
       submit: 'Submit an article',
       stats: { founded: 'Founded', issues: 'Issues published', bilingual: 'Bilingual' },
