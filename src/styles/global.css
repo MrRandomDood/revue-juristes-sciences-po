@@ -69,18 +69,28 @@ h3 { font-size: 1.5rem; }
 .brand img { width: 48px; height: 48px; }
 .brand-title { font-size: 1.2rem; line-height: 1.05; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
 
-.main-nav { display: flex; align-items: center; gap: 16px; margin-left: auto; }
-/* The blog sits apart from the review pages, after a divider */
-.nav-blog-group { display: flex; align-items: center; gap: 2px; padding-left: 16px; border-left: 1px solid var(--line); }
-.nav-blog, .nav-blog-submit {
-  display: block; padding: 8px 14px; border-radius: 999px; white-space: nowrap;
-  font-family: var(--sans); font-size: 0.84rem; text-decoration: none; color: var(--mauve);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+/* Main menu: plain text links, the current page underlined */
+.main-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; gap: 26px; }
+.main-nav a {
+  position: relative; display: block; padding: 10px 0; white-space: nowrap;
+  font-family: var(--sans); font-size: 0.86rem; font-weight: 500; color: var(--ink); text-decoration: none;
+  transition: color 0.2s;
 }
-.nav-blog { font-weight: 600; border: 1px solid currentColor; }
-.nav-blog-submit { font-weight: 500; border: 1px solid transparent; }
-.nav-blog:hover, .nav-blog[aria-current], .nav-blog-submit[aria-current] { background: var(--mauve); border-color: var(--mauve); color: #fff; }
-.nav-blog-submit:hover { background: rgba(126, 87, 97, 0.1); color: var(--mauve); }
+.main-nav a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 3px; height: 2px; border-radius: 2px;
+  background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease);
+}
+.main-nav a:hover { color: var(--burgundy); }
+.main-nav a:hover::after { transform: scaleX(0.4); }
+.main-nav a[aria-current]::after { transform: scaleX(1); }
+.main-nav ul a[aria-current] { color: var(--burgundy); font-weight: 600; }
+
+/* The blog sits apart from the review pages: after a divider, in mauve */
+.nav-blog-group { display: flex; align-items: center; gap: 22px; padding-left: 28px; border-left: 1px solid var(--line); }
+.main-nav .nav-blog, .main-nav .nav-blog-submit { color: var(--mauve); }
+.main-nav .nav-blog { font-weight: 600; }
+.main-nav .nav-blog:hover, .main-nav .nav-blog-submit:hover { color: #5f3d47; }
 .header-tools { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 /* FR / EN switch: both languages always visible, current one filled */
@@ -94,26 +104,18 @@ h3 { font-size: 1.5rem; }
 .lang-toggle a[aria-current] { background: var(--burgundy); color: #fff; box-shadow: 0 2px 6px rgba(83, 31, 44, 0.25); }
 .lang-short { display: none; }
 @media (max-width: 1240px) { .lang-long { display: none; } .lang-short { display: inline; } }
-.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 2px; }
-.main-nav ul a {
-  display: block; padding: 8px 12px; border-radius: 999px; white-space: nowrap;
-  font-family: var(--sans); font-size: 0.84rem; font-weight: 500; color: var(--ink); text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-.main-nav ul a:hover { background: var(--stone-soft); color: var(--burgundy); }
-.main-nav ul a[aria-current='page'] { background: var(--burgundy); color: #fff; }
-
 @media (max-width: 1180px) {
   /* Menu stays visible: it moves under the logo and wraps onto as many lines as it needs */
   .site-header { position: relative; }
-  .masthead { flex-wrap: wrap; row-gap: 8px; padding-bottom: 12px; }
-  .main-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 4px; margin: 0; }
-  .main-nav ul { flex-wrap: wrap; justify-content: flex-start; gap: 4px; }
-  .main-nav ul a { background: var(--stone-soft); }
-  .nav-blog-group { gap: 4px; padding-left: 0; border-left: 0; }
+  .masthead { flex-wrap: wrap; row-gap: 2px; padding-bottom: 8px; }
+  .main-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 0 22px; margin: 0; padding-top: 6px; border-top: 1px solid var(--line); }
+  .main-nav ul { flex-wrap: wrap; gap: 0 22px; }
+  .nav-blog-group { gap: 22px; padding-left: 22px; }
 }
 @media (max-width: 480px) {
-  .main-nav ul a, .nav-blog, .nav-blog-submit { font-size: 0.8rem; padding: 7px 11px; }
+  .main-nav, .main-nav ul { column-gap: 18px; }
+  .main-nav a { font-size: 0.84rem; padding: 7px 0; }
+  .nav-blog-group { flex-basis: 100%; padding-left: 0; border-left: 0; gap: 18px; }
 }
 @media (max-width: 480px) {
   .masthead { padding: 10px 16px; }
