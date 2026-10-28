@@ -99,7 +99,7 @@ if (props.view === 'home') {
 const team = props.view === 'team' ? parse(teamYml) : null;
 const latestIssue = issues[0];
 // Blog pages get their own header style so they read as separate from the review.
-const isBlog = props.view === 'blog' || props.view === 'category' || props.view === 'post';
+const isBlog = props.view === 'blog' || props.view === 'category' || props.view === 'post' || path === PATHS.submit;
 const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
 ---
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
@@ -111,8 +111,8 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
             <h1>{pageData.data.title}</h1>
             <p class="hero-lead">{s.hero.lead}</p>
             <p class="actions">
-              <a class="button button--light" href={url(lang, PATHS.issues)}>{s.latestIssue} →</a>
-              <a class="button button--ghost" href={url(lang, PATHS.submit)}>{s.hero.submit}</a>
+              <a class="button button--light" href="#dernier-numero">{s.latestIssue} <span class="arrow-down" aria-hidden="true">↓</span></a>
+              <a class="button button--ghost" href={url(lang, PATHS.issues)}>{s.hero.allIssues}</a>
             </p>
             <dl class="stats">
               <div><dt>{s.hero.stats.founded}</dt><dd>2009</dd></div>
@@ -134,14 +134,17 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
           <div class="prose lead"><Content /></div>
         </div>
       </section>
-      <section class="section section--stone">
+      <section class="section section--stone" id="dernier-numero">
         <div class="container feature">
           {latestIssue && <p class="feature-no" aria-hidden="true"><span>{s.issueNo}</span>{latestIssue.number}</p>}
           <div>
             <p class="eyebrow">{s.latestIssue}</p>
             <h2>{content2.data.title}</h2>
             <div class="prose"><content2.Content /></div>
-            <p class="actions"><a class="button" href={url(lang, PATHS.issues)}>{s.discover} →</a></p>
+            <p class="actions">
+              {latestIssue?.pdf && <a class="button" href={`${url(lang, PATHS.issues)}#flipbook`}>{s.browse}</a>}
+              {latestIssue?.pdf && <a class="button button--outline" href={latestIssue.pdf} target="_blank" rel="noopener">{s.downloadPdf}</a>}
+            </p>
           </div>
         </div>
       </section>
@@ -154,7 +157,12 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
         <p class="eyebrow">{isBlog ? s.blogName : s.siteName}</p>
         <h1>{title}</h1>
         {props.view === 'team' && team && <p class="page-hero-sub">{team.year}</p>}
-        {isBlog && <div class="page-hero-intro"><Content /></div>}
+        {(props.view === 'blog' || props.view === 'category') && (
+          <>
+            <div class="page-hero-intro"><Content /></div>
+            <p class="actions"><a class="button button--light" href={url(lang, PATHS.submit)}>{s.nav.submit} →</a></p>
+          </>
+        )}
       </div>
     </section>
   )}
