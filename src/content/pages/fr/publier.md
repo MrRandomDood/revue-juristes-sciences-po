@@ -5,6 +5,8 @@ description: Consignes éditoriales et formulaire de soumission pour le blog de 
 
 Pour publier un article sur le blog de la Revue des Juristes de Sciences Po merci de prendre connaissance des consignes éditoriales et bibliographiques et de remplir le formulaire ci-dessous. Votre article sera ensuite corrigé par l'équipe du Blog.
 
+> Les consignes ci-dessous sont rédigées en anglais. Elles s'appliquent aux articles soumis en français comme en anglais.
+
 ## Submission Guidelines – Sciences Po Law Review – Blog
 
 ### 1. Formal Requirements
