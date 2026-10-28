@@ -77,11 +77,15 @@ if (props.view === 'home') {
 } else if (props.view === 'issues') {
   issues = (await getCollection('issues')).map((i) => i.data).sort((a, b) => b.number - a.number);
   title = s.nav.issues;
-} else if (props.view === 'blog') {
-  title = s.nav.blog;
-} else if (props.view === 'category') {
-  listed = allPosts.filter((p) => p.data.categories.includes(props.category));
-  title = catName(props.category);
+} else if (props.view === 'blog' || props.view === 'category') {
+  pageData = await pageEntry('blog');
+  Content = (await render(pageData)).Content;
+  title = pageData.data.title;
+  description = pageData.data.description;
+  if (props.view === 'category') {
+    listed = allPosts.filter((p) => p.data.categories.includes(props.category));
+    title = catName(props.category);
+  }
 } else if (props.view === 'post') {
   post = allPosts.find((p) => p.id === props.post)!;
   Content = (await render(post)).Content;
@@ -94,12 +98,9 @@ if (props.view === 'home') {
 }
 const team = props.view === 'team' ? parse(teamYml) : null;
 const latestIssue = issues[0];
-const latestPost = allPosts[0];
-// Home: the 3 newest posts overall, plus the 3 newest in each language for the language filter.
-const homePosts = allPosts.filter((p) =>
-  [allPosts, allPosts.filter((q) => q.data.lang === 'fr'), allPosts.filter((q) => q.data.lang === 'en')]
-    .some((list) => list.slice(0, 3).includes(p)));
-const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
+// Blog pages get their own header style so they read as separate from the review.
+const isBlog = props.view === 'blog' || props.view === 'category' || props.view === 'post';
+const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
 ---
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
   {props.view === 'home' && (
@@ -119,22 +120,11 @@ const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categ
               <div><dt>{s.hero.stats.bilingual}</dt><dd>FR · EN</dd></div>
             </dl>
           </div>
-          {latestPost && (
-            <aside class="hero-post">
-              <p class="hero-post-label">{s.latestPost}</p>
-              <a class="hero-post-card" href={url(lang, `post/${latestPost.id}`)}>
-                {latestPost.data.cover && <img src={latestPost.data.cover} alt="" width="640" height="400" />}
-                <span class="hero-post-body">
-                  <strong>{latestPost.data.title}</strong>
-                  <span class="meta">
-                    {latestPost.data.author && <span>{latestPost.data.author}</span>}
-                    <span>{formatDate(latestPost.data.date, lang)}</span>
-                  </span>
-                  <span class="hero-post-read">{s.readArticle} →</span>
-                </span>
-              </a>
-              <a class="button button--ghost hero-post-blog" href={url(lang, PATHS.blog)}>{s.visitBlog} →</a>
-            </aside>
+          {latestIssue?.cover && (
+            <a class="hero-cover" href={url(lang, PATHS.issues)}>
+              <span class="hero-cover-label">{s.latestIssue} · {s.issueNo} {latestIssue.number}</span>
+              <img src={latestIssue.cover} alt={content2.data.title} width="420" height="586" />
+            </a>
           )}
         </div>
       </section>
@@ -146,9 +136,7 @@ const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categ
       </section>
       <section class="section section--stone">
         <div class="container feature">
-          {latestIssue?.cover
-            ? <a href={url(lang, PATHS.issues)}><img src={latestIssue.cover} alt={content2.data.title} loading="lazy" /></a>
-            : latestIssue && <p class="feature-no" aria-hidden="true"><span>{s.issueNo}</span>{latestIssue.number}</p>}
+          {latestIssue && <p class="feature-no" aria-hidden="true"><span>{s.issueNo}</span>{latestIssue.number}</p>}
           <div>
             <p class="eyebrow">{s.latestIssue}</p>
             <h2>{content2.data.title}</h2>
@@ -157,30 +145,16 @@ const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categ
           </div>
         </div>
       </section>
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">{s.editorials}</p>
-              <h2>{s.latestPosts}</h2>
-            </div>
-            <a class="more" href={url(lang, PATHS.blog)}>{s.allPosts} →</a>
-          </div>
-          <LangFilter lang={lang} target="latest-posts" limit={3} />
-          <div class="cards" id="latest-posts">
-            {homePosts.map((p) => <PostCard post={p} lang={lang} hidden={!allPosts.slice(0, 3).includes(p)} />)}
-          </div>
-        </div>
-      </section>
     </>
   )}
 
   {props.view !== 'home' && props.view !== 'post' && (
-    <section class="page-hero">
+    <section class:list={['page-hero', { 'page-hero--blog': isBlog }]}>
       <div class="container">
-        <p class="eyebrow">{s.siteName}</p>
+        <p class="eyebrow">{isBlog ? s.blogName : s.siteName}</p>
         <h1>{title}</h1>
         {props.view === 'team' && team && <p class="page-hero-sub">{team.year}</p>}
+        {isBlog && <div class="page-hero-intro"><Content /></div>}
       </div>
     </section>
   )}
@@ -255,6 +229,15 @@ const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categ
         <div class="cards" id="post-list">{listed.map((p) => <PostCard post={p} lang={lang} />)}</div>
       </div>
     </section>
+  )}
+
+  {props.view === 'post' && post && (
+    <nav class="blog-bar" aria-label={s.blogName}>
+      <div class="container">
+        <a href={url(lang, PATHS.blog)}>{s.blogName}</a>
+        {post.data.categories[0] && <><span aria-hidden="true">/</span><a href={url(lang, `blog/categories/${post.data.categories[0]}`)}>{catName(post.data.categories[0])}</a></>}
+      </div>
+    </nav>
   )}
 
   {props.view === 'post' && post && (

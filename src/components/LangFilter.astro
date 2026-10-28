@@ -1,14 +1,13 @@
 ---
-// Buttons that filter the following `.cards` grid by article language.
-// With `limit`, only that many matching cards are shown (used on the home page).
+// Buttons that filter a `.cards` grid (by id) by article language.
 import { t, type Lang } from '../lib/i18n';
 
-interface Props { lang: Lang; target: string; limit?: number }
-const { lang, target, limit } = Astro.props;
+interface Props { lang: Lang; target: string }
+const { lang, target } = Astro.props;
 const s = t[lang].langFilter;
 const options = [['all', s.all], ['fr', 'Français'], ['en', 'English']];
 ---
-<div class="lang-filter" role="group" aria-label={s.label} data-target={target} data-limit={limit}>
+<div class="lang-filter" role="group" aria-label={s.label} data-target={target}>
   {options.map(([value, label]) => (
     <button type="button" data-value={value} aria-pressed={value === 'all' ? 'true' : 'false'}>{label}</button>
   ))}
@@ -17,16 +16,12 @@ const options = [['all', s.all], ['fr', 'Français'], ['en', 'English']];
 <script>
   for (const group of document.querySelectorAll<HTMLElement>('.lang-filter')) {
     const grid = document.getElementById(group.dataset.target!)!;
-    const limit = Number(group.dataset.limit) || Infinity;
     const buttons = group.querySelectorAll<HTMLButtonElement>('button');
     buttons.forEach((button) => button.addEventListener('click', () => {
       const value = button.dataset.value;
       buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
-      let shown = 0;
       for (const card of grid.querySelectorAll<HTMLElement>('[data-lang]')) {
-        const match = (value === 'all' || card.dataset.lang === value) && shown < limit;
-        card.hidden = !match;
-        if (match) shown++;
+        card.hidden = value !== 'all' && card.dataset.lang !== value;
       }
     }));
   }

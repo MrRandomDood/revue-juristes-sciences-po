@@ -23,7 +23,6 @@ const desc = description || (lang === 'fr'
 const nav = [
   { href: PATHS.home, label: s.nav.home },
   { href: PATHS.issues, label: s.nav.issues },
-  { href: PATHS.blog, label: s.nav.blog },
   { href: PATHS.submit, label: s.nav.submit },
   { href: PATHS.prizes, label: s.nav.prizes },
   { href: PATHS.team, label: s.nav.team },
@@ -68,6 +67,7 @@ const canonical = new URL(url(lang, path), Astro.site);
               <li><a href={url(lang, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
             ))}
           </ul>
+          <a class="nav-blog" href={url(lang, PATHS.blog)} aria-current={isActive(PATHS.blog) ? 'page' : undefined}>{s.nav.blog}</a>
         </nav>
         <div class="header-tools">
           <div class="lang-toggle" role="group" aria-label="Langue / Language">

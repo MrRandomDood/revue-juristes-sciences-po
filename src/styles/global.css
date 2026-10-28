@@ -70,6 +70,16 @@ h3 { font-size: 1.5rem; }
 .brand-title { font-size: 1.2rem; line-height: 1.05; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
 
 .main-nav { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+/* The blog sits apart from the review pages, after a divider */
+.nav-blog {
+  display: block; padding: 8px 14px; border-radius: 999px; white-space: nowrap;
+  font-family: var(--sans); font-size: 0.84rem; font-weight: 600; color: var(--mauve); text-decoration: none;
+  border: 1px solid currentColor; position: relative; margin-left: 12px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.nav-blog::before { content: ''; position: absolute; left: -17px; top: 20%; bottom: 20%; width: 1px; background: var(--line); }
+.nav-blog:hover { background: var(--mauve); border-color: var(--mauve); color: #fff; }
+.nav-blog[aria-current] { background: var(--mauve); border-color: var(--mauve); color: #fff; }
 .header-tools { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 /* FR / EN switch: both languages always visible, current one filled */
@@ -117,6 +127,8 @@ h3 { font-size: 1.5rem; }
   .menu-open .main-nav { display: flex; }
   .main-nav ul { flex-direction: column; }
   .main-nav ul a { font-size: 1rem; padding: 12px 16px; border-radius: 12px; }
+  .nav-blog { margin: 0; padding: 12px 16px; border-radius: 12px; font-size: 1rem; }
+  .nav-blog::before { content: none; }
 }
 @media (max-width: 480px) {
   .masthead { padding: 10px 16px; }
@@ -182,25 +194,18 @@ main { min-height: 60vh; }
 .stats div { display: flex; flex-direction: column-reverse; }
 .stats dt { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.65); }
 .stats dd { margin: 0; font-size: 2.2rem; font-weight: 600; line-height: 1.1; }
-/* Latest blog article, beside the hero title */
-.hero-post { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 440px; justify-self: end; }
-.hero-post-label { margin: 0; font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); }
-.hero-post-card {
-  display: block; overflow: hidden; border-radius: var(--radius); background: #fff; color: var(--ink); text-decoration: none;
-  box-shadow: 0 30px 60px rgba(20, 5, 10, 0.4);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+/* Latest issue cover, beside the hero title */
+.hero-cover { display: flex; flex-direction: column; gap: 14px; justify-self: end; width: 100%; max-width: 400px; color: #fff; text-decoration: none; }
+.hero-cover:hover { color: #fff; }
+.hero-cover-label { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); }
+.hero-cover img {
+  display: block; border-radius: 14px; box-shadow: 0 30px 60px rgba(20, 5, 10, 0.45);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
-.hero-post-card:hover { transform: translateY(-6px); box-shadow: 0 40px 70px rgba(20, 5, 10, 0.5); color: var(--ink); }
-.hero-post-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.hero-post-body { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 24px; }
-.hero-post-body strong { font-size: 1.5rem; line-height: 1.15; font-weight: 600; }
-.hero-post-card:hover strong { color: var(--burgundy); }
-.hero-post-body .meta { padding-top: 0; }
-.hero-post-read { font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--burgundy); }
-.hero-post-blog { justify-content: center; }
+.hero-cover:hover img { transform: translateY(-6px); box-shadow: 0 40px 70px rgba(20, 5, 10, 0.55); }
 @media (max-width: 720px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-post { justify-self: stretch; max-width: none; }
+  .hero-cover { justify-self: start; max-width: 280px; }
 }
 
 /* Inner page title band */
@@ -212,6 +217,20 @@ main { min-height: 60vh; }
 .page-hero h1 { margin: 0; color: var(--burgundy); max-width: 20ch; }
 .page-hero-sub { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); margin: 16px 0 0; }
 .page-hero + .section { padding-top: clamp(40px, 6vw, 72px); }
+
+/* Blog: its own mauve identity, distinct from the burgundy review */
+.page-hero--blog {
+  color: #fff; border-bottom: 0;
+  background: radial-gradient(800px 360px at 90% 0%, rgba(209, 204, 197, 0.22), transparent 70%), linear-gradient(135deg, var(--mauve), #5f3d47);
+}
+.page-hero--blog .eyebrow { color: var(--stone); }
+.page-hero--blog h1 { color: #fff; }
+.page-hero-intro { max-width: 60ch; margin-top: 18px; font-size: 1.25rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); }
+.page-hero-intro p { margin: 0; }
+.blog-bar { background: var(--mauve); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; }
+.blog-bar .container { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 16px; color: rgba(255, 255, 255, 0.6); }
+.blog-bar a { color: #fff; text-decoration: none; }
+.blog-bar a:hover { color: var(--stone); }
 
 /* About */
 .split { display: grid; grid-template-columns: 220px 1fr; gap: 32px; max-width: 1000px; align-items: start; }
@@ -366,12 +385,12 @@ a.prize-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift)
 
 /* Gentle entrance for sections */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-text > *, .hero-post { animation: rise 0.8s var(--ease) both; }
+  .hero-text > *, .hero-cover { animation: rise 0.8s var(--ease) both; }
   .hero-text > :nth-child(2) { animation-delay: 0.08s; }
   .hero-text > :nth-child(3) { animation-delay: 0.16s; }
   .hero-text > :nth-child(4) { animation-delay: 0.24s; }
   .hero-text > :nth-child(5) { animation-delay: 0.32s; }
-  .hero-post { animation-delay: 0.2s; }
+  .hero-cover { animation-delay: 0.2s; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
