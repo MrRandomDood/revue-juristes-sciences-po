@@ -79,19 +79,10 @@ const canonical = new URL(url(lang, path), Astro.site);
               </a>
             ))}
           </div>
-          <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
-            <span class="menu-icon" aria-hidden="true"></span><span class="menu-label">{s.menu}</span>
-          </button>
         </div>
       </div>
     </header>
     <script>
-      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
-      toggle.addEventListener('click', () => {
-        const open = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(open));
-        document.body.classList.toggle('menu-open', open);
-      });
       // Adds a shadow under the header once the page scrolls.
       const header = document.querySelector('.site-header')!;
       const onScroll = () => header.classList.toggle('is-scrolled', scrollY > 8);

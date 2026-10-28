@@ -103,44 +103,26 @@ h3 { font-size: 1.5rem; }
 .main-nav ul a:hover { background: var(--stone-soft); color: var(--burgundy); }
 .main-nav ul a[aria-current='page'] { background: var(--burgundy); color: #fff; }
 
-.menu-toggle {
-  display: none; align-items: center; gap: 10px; cursor: pointer;
-  font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--ink);
-  background: var(--stone-soft); border: 0; border-radius: 999px; padding: 10px 16px;
-}
-.menu-icon, .menu-icon::before, .menu-icon::after { display: block; width: 16px; height: 1.5px; background: currentColor; transition: transform 0.25s var(--ease); }
-.menu-icon { position: relative; }
-.menu-icon::before, .menu-icon::after { content: ''; position: absolute; left: 0; }
-.menu-icon::before { top: -5px; }
-.menu-icon::after { top: 5px; }
-.menu-open .menu-icon { background: transparent; }
-.menu-open .menu-icon::before { transform: translateY(5px) rotate(45deg); }
-.menu-open .menu-icon::after { transform: translateY(-5px) rotate(-45deg); }
-
 @media (max-width: 1180px) {
-  .menu-toggle { display: inline-flex; }
+  /* Menu stays visible: it moves to its own row under the logo and scrolls sideways if needed */
+  .masthead { flex-wrap: wrap; row-gap: 6px; padding-bottom: 6px; }
   .main-nav {
-    display: none; position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 16px;
-    background: var(--paper); padding: 12px 16px 24px; border-bottom: 1px solid var(--line);
-    box-shadow: 0 20px 40px rgba(58, 20, 30, 0.1);
+    order: 3; flex-basis: 100%; margin: 0 -24px; padding: 2px 24px 4px; gap: 12px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
   }
-  .menu-open .main-nav { display: flex; }
-  .main-nav ul { flex-direction: column; }
-  .main-nav ul a { font-size: 1rem; padding: 12px 16px; border-radius: 12px; }
-  .nav-blog-group { flex-direction: column; align-items: stretch; gap: 4px; padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line); }
-  .nav-blog, .nav-blog-submit { padding: 12px 16px; border-radius: 12px; font-size: 1rem; }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .nav-blog-group { padding-left: 12px; }
 }
 @media (max-width: 480px) {
   .masthead { padding: 10px 16px; }
   .brand img { width: 40px; height: 40px; }
   .brand-title { font-size: 0.95rem; }
-  .menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .menu-toggle { padding: 13px 12px; }
   .masthead { gap: 8px; }
   .brand { gap: 8px; min-width: 0; }
   .header-tools { gap: 6px; }
   .lang-toggle a { padding: 7px 10px; min-width: 38px; }
+  .main-nav { margin: 0 -16px; padding: 2px 16px 4px; }
 }
 
 /* Layout */
@@ -200,6 +182,15 @@ main { min-height: 60vh; }
 .stats div { display: flex; flex-direction: column-reverse; }
 .stats dt { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.65); }
 .stats dd { margin: 0; font-size: 2.2rem; font-weight: 600; line-height: 1.1; }
+/* Blog banner at the top of the home page */
+.blog-banner { display: block; background: var(--mauve); color: #fff; text-decoration: none; padding: 0 16px; transition: background 0.25s; }
+.blog-banner:hover { background: #6d4a54; color: #fff; }
+.blog-banner-inner { display: flex; align-items: center; gap: 14px 18px; flex-wrap: wrap; padding: 14px 0; font-family: var(--sans); font-size: 0.92rem; }
+.blog-banner-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255, 255, 255, 0.16); padding: 5px 11px; border-radius: 999px; }
+.blog-banner-text { flex: 1; min-width: 220px; }
+.blog-banner-cta { font-weight: 600; white-space: nowrap; }
+.blog-banner:hover .blog-banner-cta { text-decoration: underline; text-underline-offset: 3px; }
+
 /* Latest issue cover, beside the hero title */
 .hero-cover { display: flex; flex-direction: column; gap: 14px; justify-self: end; width: 100%; max-width: 400px; color: #fff; text-decoration: none; }
 .hero-cover:hover { color: #fff; }

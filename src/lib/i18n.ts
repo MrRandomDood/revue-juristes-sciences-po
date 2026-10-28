@@ -21,7 +21,6 @@ export const t = {
   fr: {
     siteName: 'Revue des Juristes de Sciences Po',
     nav: { home: 'Accueil', issues: 'Nos Revues semestrielles', blog: 'Le Blog', prizes: 'Prix et Distinctions', team: "L'équipe", submit: 'Publier sur le blog' },
-    menu: 'Menu',
     hero: {
       lead: 'Revue bilingue entièrement conçue par les étudiants de l’École de droit de Sciences Po, publiée par LexisNexis.',
       allIssues: 'Toutes nos revues',
@@ -29,6 +28,8 @@ export const t = {
     },
     about: 'À propos',
     blogName: 'Le Blog de la RJSP',
+    blogTeaser: 'Découvrez aussi notre blog : des articles d’actualité juridique rédigés par des étudiants.',
+    readBlog: 'Lire le blog',
     langFilter: { label: 'Langue des articles', all: 'Tous' },
     latestIssue: 'Dernier numéro',
     allPosts: 'Tous les articles',
@@ -50,7 +51,6 @@ export const t = {
   en: {
     siteName: 'Sciences Po Law Review',
     nav: { home: 'Home', issues: 'Our Biannual Issues', blog: 'The Blog', prizes: 'Prizes and Awards', team: 'The Team', submit: 'Write for the blog' },
-    menu: 'Menu',
     hero: {
       lead: 'A bilingual journal run entirely by students of Sciences Po Law School, published by LexisNexis.',
       allIssues: 'All our issues',
@@ -58,6 +58,8 @@ export const t = {
     },
     about: 'About',
     blogName: 'The RJSP Blog',
+    blogTeaser: 'Also check out our blog: articles on current legal issues, written by students.',
+    readBlog: 'Read the blog',
     langFilter: { label: 'Article language', all: 'All' },
     latestIssue: 'Latest issue',
     allPosts: 'All posts',
