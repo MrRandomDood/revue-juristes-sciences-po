@@ -104,15 +104,16 @@ h3 { font-size: 1.5rem; }
 .main-nav ul a[aria-current='page'] { background: var(--burgundy); color: #fff; }
 
 @media (max-width: 1180px) {
-  /* Menu stays visible: it moves to its own row under the logo and scrolls sideways if needed */
-  .masthead { flex-wrap: wrap; row-gap: 6px; padding-bottom: 6px; }
-  .main-nav {
-    order: 3; flex-basis: 100%; margin: 0 -24px; padding: 2px 24px 4px; gap: 12px;
-    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
-  }
-  .main-nav::-webkit-scrollbar { display: none; }
-  .nav-blog-group { padding-left: 12px; }
+  /* Menu stays visible: it moves under the logo and wraps onto as many lines as it needs */
+  .site-header { position: relative; }
+  .masthead { flex-wrap: wrap; row-gap: 8px; padding-bottom: 12px; }
+  .main-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 4px; margin: 0; }
+  .main-nav ul { flex-wrap: wrap; justify-content: flex-start; gap: 4px; }
+  .main-nav ul a { background: var(--stone-soft); }
+  .nav-blog-group { gap: 4px; padding-left: 0; border-left: 0; }
+}
+@media (max-width: 480px) {
+  .main-nav ul a, .nav-blog, .nav-blog-submit { font-size: 0.8rem; padding: 7px 11px; }
 }
 @media (max-width: 480px) {
   .masthead { padding: 10px 16px; }
@@ -122,7 +123,6 @@ h3 { font-size: 1.5rem; }
   .brand { gap: 8px; min-width: 0; }
   .header-tools { gap: 6px; }
   .lang-toggle a { padding: 7px 10px; min-width: 38px; }
-  .main-nav { margin: 0 -16px; padding: 2px 16px 4px; }
 }
 
 /* Layout */
@@ -163,7 +163,7 @@ main { min-height: 60vh; }
 
 /* Home hero */
 .hero {
-  position: relative; overflow: hidden; color: #fff; padding: clamp(56px, 8vw, 104px) 16px clamp(64px, 9vw, 120px);
+  position: relative; overflow: hidden; color: #fff; padding: clamp(48px, 7vw, 88px) 16px clamp(48px, 6vw, 80px);
   background:
     radial-gradient(900px 500px at 85% 10%, rgba(126, 87, 97, 0.55), transparent 60%),
     radial-gradient(700px 500px at 0% 100%, rgba(58, 20, 30, 0.9), transparent 70%),

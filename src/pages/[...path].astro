@@ -105,13 +105,6 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
   {props.view === 'home' && (
     <>
-      <a class="blog-banner" href={url(lang, PATHS.blog)}>
-        <span class="container blog-banner-inner">
-          <span class="blog-banner-tag">{s.nav.blog}</span>
-          <span class="blog-banner-text">{s.blogTeaser}</span>
-          <span class="blog-banner-cta">{s.readBlog} →</span>
-        </span>
-      </a>
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-text">
@@ -135,6 +128,13 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
           )}
         </div>
       </section>
+      <a class="blog-banner" href={url(lang, PATHS.blog)}>
+        <span class="container blog-banner-inner">
+          <span class="blog-banner-tag">{s.nav.blog}</span>
+          <span class="blog-banner-text">{s.blogTeaser}</span>
+          <span class="blog-banner-cta">{s.readBlog} →</span>
+        </span>
+      </a>
       <section class="section">
         <div class="container split">
           <p class="eyebrow">{s.about}</p>
