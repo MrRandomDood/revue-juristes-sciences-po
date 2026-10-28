@@ -5,6 +5,7 @@ import { parse } from 'yaml';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import Flipbook from '../components/Flipbook.astro';
+import LangFilter from '../components/LangFilter.astro';
 import teamYml from '../content/team.yml?raw';
 import { PATHS, t, url, formatDate, type Lang } from '../lib/i18n';
 
@@ -93,7 +94,11 @@ if (props.view === 'home') {
 }
 const team = props.view === 'team' ? parse(teamYml) : null;
 const latestIssue = issues[0];
-const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
+// Home: the 3 newest posts overall, plus the 3 newest in each language for the language filter.
+const homePosts = allPosts.filter((p) =>
+  [allPosts, allPosts.filter((q) => q.data.lang === 'fr'), allPosts.filter((q) => q.data.lang === 'en')]
+    .some((list) => list.slice(0, 3).includes(p)));
+const usedCategories =categories.filter((c) => allPosts.some((p) => p.data.categories.includes(c.id)));
 ---
 <Base lang={lang} path={path} title={props.view === 'home' ? undefined : title} description={description} image={image}>
   {props.view === 'home' && (
@@ -147,7 +152,10 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
             </div>
             <a class="more" href={url(lang, PATHS.blog)}>{s.allPosts} →</a>
           </div>
-          <div class="cards">{allPosts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
+          <LangFilter lang={lang} target="latest-posts" limit={3} />
+          <div class="cards" id="latest-posts">
+            {homePosts.map((p) => <PostCard post={p} lang={lang} hidden={!allPosts.slice(0, 3).includes(p)} />)}
+          </div>
         </div>
       </section>
     </>
@@ -223,13 +231,14 @@ const usedCategories = categories.filter((c) => allPosts.some((p) => p.data.cate
   {(props.view === 'blog' || props.view === 'category') && (
     <section class="section section--stone">
       <div class="container">
+        <LangFilter lang={lang} target="post-list" />
         <ul class="cat-filter">
           <li><a href={url(lang, PATHS.blog)} aria-current={props.view === 'blog' ? 'page' : undefined}>{s.allPosts}</a></li>
           {usedCategories.map((c) => (
             <li><a href={url(lang, `blog/categories/${c.id}`)} aria-current={props.view === 'category' && props.category === c.id ? 'page' : undefined}>{c.data.name}</a></li>
           ))}
         </ul>
-        <div class="cards">{listed.map((p) => <PostCard post={p} lang={lang} />)}</div>
+        <div class="cards" id="post-list">{listed.map((p) => <PostCard post={p} lang={lang} />)}</div>
       </div>
     </section>
   )}

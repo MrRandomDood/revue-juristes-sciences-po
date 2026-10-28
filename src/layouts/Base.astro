@@ -19,7 +19,6 @@ const fullTitle = title ? `${title} | ${s.siteName}` : s.siteName;
 const desc = description || (lang === 'fr'
   ? 'La Revue des Juristes de Sciences Po, revue juridique semestrielle bilingue des étudiants de l\'École de droit de Sciences Po.'
   : 'The Sciences Po Law Review, a bilingual biannual law journal run by students of Sciences Po Law School.');
-const otherLang: Lang = lang === 'fr' ? 'en' : 'fr';
 
 const nav = [
   { href: PATHS.home, label: s.nav.home },
@@ -63,19 +62,25 @@ const canonical = new URL(url(lang, path), Astro.site);
           <img src="/media/site/logo-rjsp.png" alt="" width="48" height="48" />
           <span class="brand-title">Revue des Juristes<br />de Sciences Po</span>
         </a>
-        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
-          <span class="menu-icon" aria-hidden="true"></span>{s.menu}
-        </button>
         <nav class="main-nav" id="main-nav" aria-label="Navigation">
           <ul>
             {nav.map((item) => (
               <li><a href={url(lang, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
             ))}
           </ul>
-          <a class="lang-switch" href={url(otherLang, path)} hreflang={otherLang} lang={otherLang}>
-            {otherLang.toUpperCase()}
-          </a>
         </nav>
+        <div class="header-tools">
+          <div class="lang-toggle" role="group" aria-label="Langue / Language">
+            {(['fr', 'en'] as Lang[]).map((l) => (
+              <a href={url(l, path)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>
+                <span class="lang-long">{l === 'fr' ? 'Français' : 'English'}</span><span class="lang-short">{l.toUpperCase()}</span>
+              </a>
+            ))}
+          </div>
+          <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-icon" aria-hidden="true"></span><span class="menu-label">{s.menu}</span>
+          </button>
+        </div>
       </div>
     </header>
     <script>
