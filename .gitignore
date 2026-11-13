@@ -3,3 +3,4 @@ dist/
 .astro/
 scripts/dump/
 .DS_Store
+cloudflare-upload.zip
