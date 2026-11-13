@@ -34,5 +34,6 @@ npm run build    # output in dist/
 
 ## Hosting
 
-Any static host works. Recommended: **Netlify** (connect the GitHub repo; build command `npm run build`, publish directory `dist`).
-Cloudflare Pages also works, but its 25 MB per-file limit rejects `public/issues/rjsp-12.pdf` (27 MB) unless it is compressed first.
+Hosted on **Cloudflare Pages**, connected to this GitHub repo: build command `npm run build`, output directory `dist`
+(Node version from `.node-version`). Every push to `main` redeploys. Old Wix URLs are redirected by `public/_redirects`.
+Cloudflare Pages rejects files over 25 MB, so compress large PDFs before adding them.
