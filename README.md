@@ -34,6 +34,6 @@ npm run build    # output in dist/
 
 ## Hosting
 
-Hosted on **Cloudflare Pages**, connected to this GitHub repo: build command `npm run build`, output directory `dist`
-(Node version from `.node-version`). Every push to `main` redeploys. Old Wix URLs are redirected by `public/_redirects`.
-Cloudflare Pages rejects files over 25 MB, so compress large PDFs before adding them.
+Hosted as a **Cloudflare Worker** (`revue-juristes-sciences-po`) that builds from this GitHub repo: Cloudflare runs
+`npm run build`, then serves `dist/` as configured in `wrangler.jsonc`. Every push to `main` redeploys.
+Old Wix URLs are redirected by `public/_redirects`. Cloudflare rejects files over 25 MB, so compress large PDFs before adding them.
