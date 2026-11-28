@@ -8,21 +8,19 @@ cover: "/media/posts/control-under-review-cover.jpg"
 description: "Recent scholarship often explains the resurgence of foreign investment screening through the language of national security and geopolitical competition. This article argues that such explanations risk overlooking the longer economic histories that shaped these regimes before contemporary security concerns emerged."
 ---
 
-![](/media/posts/control-under-review-cover.jpg)
-
 *Author’s Biography:*
 
 Samantha de Verteuil: Litigation Legal Assistant in the American financial services industry. Previously published in the Illinois Law Review and the Trinity College Dublin Law Review. Honor’s Graduate of the University of Toronto with a double major in Ethics, Society & Law and European Affairs.
 
 Iva Zivaljevic: Honor’s Graduate of the University of Toronto with a double major in Ethics, Society, and Law and Political Science. Previously assisted with research on neoliberal economic policy and human rights at University College London and directed research on macroeconomic cooperation among BRICS countries at the University of Toronto Munk School of Global Affairs.
 
-## 1. 200 Word Summary
+**1. 200 Word Summary**
 
 Recent scholarship often explains the resurgence of foreign investment screening through the language of national security and geopolitical competition. This article argues that such explanations risk overlooking the longer economic histories that shaped these regimes before contemporary security concerns emerged.
 
 Through a comparative analysis of France and the United Kingdom, the article traces the development of foreign investment screening from the mid-twentieth century to the present. In France, foreign investment controls emerged as part of a broader tradition of state-led economic management. In the United Kingdom, a historically liberal approach to foreign capital gradually gave way to a more interventionist framework, culminating in the National Security and Investment Act 2021. Analyzed together, these histories suggest that foreign investment screening cannot be understood solely as a response to present-day geopolitical tensions. Instead, these regimes reflect deeper debates about the role of the state in the economy and the extent to which governments should retain authority over foreign ownership and investment.
 
-## 2. France: An Alternative Economic Model
+**2. France: An Alternative Economic Model**
 
 In recent years, foreign investment screening has become an increasingly prominent feature of economic regulation across liberal democracies. In both France and the United Kingdom, foreign investment screening is generally triggered when a foreign investor, or an investor with foreign ties, acquires ownership or control of a corporation beyond a specified threshold. The relevant government authority then reviews the investment, and either approves it, approves it subject to conditions, or prohibits it, typically on national security grounds. This article uses the United Kingdom as a point of comparison to trace the historical development of foreign investment screening in France, challenging the dominant narrative of how these legal regimes came to be established. Drawing on the framework developed by Hall and Soskice in *Varieties of Capitalism*, this article treats foreign investment screening as a legal institution shaped by broader models of political economy, and argues that it is a legal regime better understood as an expression of national governance and culture than as a response to geopolitical competition.
 
@@ -52,7 +50,7 @@ In recent years, foreign investment screening has grown stricter across liberal 
 
 This broader economic argument is also reflected in the CJEC’s 2000 decision. “...\[W\]hile Member States are still, in principle, free to determine the requirements of public policy and public security in the light of their national needs, those grounds must ... as derogations from the fundamental principle of free movement of capital, be interpreted strictly, so that their scope cannot be determined unilaterally by each Member State without any control by the Community institutions. Thus, public policy and public security may be relied on only if there is a genuine and sufficiently serious threat to a fundamental interest of society. Moreover, those derogations must not be misapplied so as, in fact, to serve purely economic ends.”[^41] The court’s language positions a stance of market liberalism, holding that the movement of capital is a right that precedes government regulation. As a legal ethicist would argue, this is not a ‘neutral’ legal stance but an enforcement of a political ideal. One in which France’s legal history produces a tension with. Not all rights are absolute, and in many ways, the EU restricts the free movement of capital through other regulatory schemes. What is viewed as a legitimate restriction of a right is largely cultural, and it is thus fascinating to illustrate how France diverges from its European partners in this specific legal and economic framework.
 
-## 3. The United Kingdom: A Liberal Comparison
+**3. The United Kingdom: A Liberal Comparison**
 
 This cultural divergence is exemplified by the United Kingdom (UK), whose economic history of foreign investment screening regimes contrasts with French economic justifications and role within the European Community. The UK exemplifies what Hall and Soskice term a liberal market economy, in which economic actors coordinate primarily through competitive markets and arm’s-length contracting, whereas France is treated as an ambiguous case that resists clear classification. This distinction helps explain not only why early UK foreign investment policy was framed in competition terms rather than industrial strategy, but why, even as security concerns mounted in the 2010s, the resulting instrument, the National Security and Investment Act (NSIA) 2021, retained the liberal market’s characteristic posture. While the NSIA is broad in reach, it remained tethered to a primary statutory justification, national security, rather than the broad discretionary authority for economic direction retained in French law.
 
@@ -68,7 +66,7 @@ The NSIA represented the culmination of the process outlined in the preceding se
 
 As such, the NSIA bears a resemblance to France’s current FDI screening framework, both grant the executive broad discretion over acquisitions in sensitive sectors and deploy national security as the primary trigger. This convergence may be explained in part by CJEC rulings in 2000 and 2002, under which France was required to narrow its grounds for screening to a national security framework more consistent with the principles of free movement in the EU. Yet where the NSIA confines review to national security concerns, France’s framework also authorizes review on public health and order grounds, categories that remain broad enough for objectives beyond security, and one consistent with France’s pattern of expanding the scope of its regime. Extending the logic of Hall and Soskice’s argument, formal convergence in legal instruments, such as foreign investment screening, does not necessarily indicate a convergence in purpose. This logic, applied here, suggests the same legal mechanism may serve different underlying objectives in different national contexts. In this case, France adopted a national security language due to constraints imposed by EU compliance standards, within a tradition of state-directed economic management that it has continued to extend where permitted. In contrast, the UK adopted a comparable system as a targeted corrective in an otherwise market-oriented framework it had maintained for decades. The same national security justification, in essence, expresses different institutional histories.
 
-## Works Cited
+**Works Cited**
 
 Banque de France, ‘Who’s Afraid of Foreign Investment Screening’ &lt;[https://www.banque-france.fr/en/publications-and-statistics/publications/whos-afraid-foreign-investment-screening](https://www.banque-france.fr/en/publications-and-statistics/publications/whos-afraid-foreign-investment-screening)&gt; accessed 21 June 2026
 
